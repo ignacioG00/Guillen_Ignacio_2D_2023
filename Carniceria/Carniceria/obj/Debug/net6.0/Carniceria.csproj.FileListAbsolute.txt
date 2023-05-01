@@ -1,0 +1,5 @@
+C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Carniceria\obj\Debug\net6.0\Carniceria.csproj.AssemblyReference.cache
+C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Carniceria\obj\Debug\net6.0\Carniceria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Carniceria\obj\Debug\net6.0\Carniceria.AssemblyInfoInputs.cache
+C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Carniceria\obj\Debug\net6.0\Carniceria.AssemblyInfo.cs
+C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Carniceria\obj\Debug\net6.0\Carniceria.csproj.CoreCompileInputs.cache
