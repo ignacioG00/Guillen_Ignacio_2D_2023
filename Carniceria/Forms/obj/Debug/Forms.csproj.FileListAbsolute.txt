@@ -1,6 +1,0 @@
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.csproj.AssemblyReference.cache
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.csproj.SuggestedBindingRedirects.cache
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.Frm_Login.resources
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.Properties.Resources.resources
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
-C:\Escritorio\UTN\Repositorios\Parcial_Laboratorio2D_Guillen\Carniceria\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
