@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Vista"
   ],
-  "SelectedNode": "\\Carniceria.sln",
+  "SelectedNode": "\\Vista\\Frm_login.cs",
   "PreviewInSolutionExplorer": false
 }

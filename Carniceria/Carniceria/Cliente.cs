@@ -9,9 +9,9 @@ namespace Carniceria
     internal class Cliente : Usuario
     {
         int montoMax;
-        List<Producto> productosComprados= new();
+        List<Producto> productosComprados = new();
 
-        public Cliente(int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, int contraseña) : base(nombre, dni, user, contraseña)
+        public Cliente(int montoMax, List<Producto> productosComprados, string nombre, int dni, string contraseña) : base(nombre, dni, contraseña)
         {
             this.montoMax = montoMax;
             this.productosComprados = productosComprados;

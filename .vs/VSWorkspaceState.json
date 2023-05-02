@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PP_Laboll2D_Guillen",
-    "\\PP_Laboll2D_Guillen\\Biblioteca"
+    "\\Carniceria",
+    "\\Carniceria\\Vista"
   ],
-  "SelectedNode": "\\PP_Laboll2D_Guillen\\Biblioteca\\Guillen.Ignacio.PrimerParcial.sln",
+  "SelectedNode": "\\Carniceria\\Vista\\Frm_login.cs",
   "PreviewInSolutionExplorer": false
 }

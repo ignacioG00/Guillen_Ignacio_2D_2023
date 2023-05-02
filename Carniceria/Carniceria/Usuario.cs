@@ -4,14 +4,12 @@
     {
         string nombre;
         int dni;
-        string usuario;
-        int contraseña;
+        string contraseña;
 
-        public Usuario(string nombre, int dni, string user, int contraseña)
+        public Usuario(string nombre, int dni ,string contraseña)
         {
             this.nombre = nombre;
             this.dni = dni;
-            this.usuario = user;
             this.contraseña = contraseña;
         }
         public string Nombre
@@ -22,11 +20,8 @@
         {
             get { return dni; }
         }
-        public string User 
-        {
-            get { return usuario; }
-        }
-        public int Contraseña 
+
+        public string Contraseña 
         {
             get { return contraseña; }
         }

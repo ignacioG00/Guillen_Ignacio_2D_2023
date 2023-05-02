@@ -11,13 +11,30 @@ namespace Vista
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
+            
+            foreach (var item in collection)
+            { }
+               
+
+
+                
+            if (Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text) == )
+            {
+                
+            }
+                
         }
 
-        private void btn_autocompletar_Click(object sender, EventArgs e)
+        private void btn_autoVendedor_Click(object sender, EventArgs e)
         {
+            tb_usuario.Text = "21564";
+            tb_contra.Text = "1234";
+        }
 
-
+        private void btn_autoCliente_Click(object sender, EventArgs e)
+        {
+            tb_usuario.Text = "22222";
+            tb_contra.Text = "ric123";
         }
     }
 }

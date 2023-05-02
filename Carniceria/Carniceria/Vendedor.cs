@@ -10,20 +10,20 @@ namespace Carniceria
 {
     internal class Vendedor : Usuario
     {
-        public Vendedor(string nombre, int dni, string user, int contraseña) : base(nombre, dni, user, contraseña)
+        public Vendedor(string nombre, int dni, string contraseña) : base(nombre, dni, contraseña)
         {
 
         }
 
-        public void VenderA(Cliente cliente , Producto producto) 
-        {
-            if (Clientes.Contains(cliente) && Producto.Contains(producto))
-            {
-                cliente.ComprarProducto(producto, PrecioPorKilo);
-                Producto productoVendido = Productos.FirstOrDefault(p => p.Id == producto.Id);
-                productoVendido.Cantidad--;
-            }
-        }
+        //public void VenderA(Cliente cliente , Producto producto) 
+        //{
+        //    if (Clientes.Contains(cliente) && Producto.Contains(producto))
+        //    {
+        //        cliente.ComprarProducto(producto, PrecioPorKilo);
+        //        Producto productoVendido = Productos.FirstOrDefault(p => p.Id == producto.Id);
+        //        productoVendido.Cantidad--;
+        //    }
+        //}
 
 
     }
