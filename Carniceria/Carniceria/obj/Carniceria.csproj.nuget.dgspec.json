@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {}
+    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
+    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
+        "projectUniqueName": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
         "projectName": "Carniceria",
-        "projectPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
+        "projectPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
         "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\obj\\",
+        "outputPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config",
