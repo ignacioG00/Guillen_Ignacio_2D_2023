@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace Carniceria
 {
-    internal class Heladera
+    public class Heladera
     {
-        List<Producto> Carnes = new List<Producto>();
+        List<Producto> listaCarnes = new List<Producto>();
+
+        public List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
 
         public Heladera(List<Producto> carnes)
         {
-            Carnes = carnes;
+            listaCarnes = carnes;
         }
 
-        public void ReponerProducto(List<Producto> carnes, Producto producto)
+        public void ReponerProducto(List<Producto> carnes, string corteDeCarne)
         {
             foreach (Producto p in carnes)
             {
-                if (p.CorteDeCarne == producto.CorteDeCarne && p.Stock < 1)
+                if (p.CorteDeCarne == corteDeCarne && p.Stock<50)
                 {
                     p.Stock += 10;
                     break; // Detener la iteración una vez que se ha encontrado el producto

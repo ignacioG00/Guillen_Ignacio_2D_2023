@@ -28,97 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_login = new Button();
-            btn_autoVendedor = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            tb_usuario = new TextBox();
-            tb_contra = new TextBox();
-            btn_autoCliente = new Button();
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Login));
+            this.btn_login = new System.Windows.Forms.Button();
+            this.btn_autoVendedor = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_usuario = new System.Windows.Forms.TextBox();
+            this.tb_contra = new System.Windows.Forms.TextBox();
+            this.btn_autoCliente = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(406, 180);
-            btn_login.Name = "btn_login";
-            btn_login.Size = new Size(122, 40);
-            btn_login.TabIndex = 0;
-            btn_login.Text = "LOGIN";
-            btn_login.UseVisualStyleBackColor = true;
-            btn_login.Click += btn_login_Click;
+            this.btn_login.Location = new System.Drawing.Point(345, 267);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(122, 40);
+            this.btn_login.TabIndex = 0;
+            this.btn_login.Text = "LOGIN";
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // btn_autoVendedor
             // 
-            btn_autoVendedor.Location = new Point(201, 296);
-            btn_autoVendedor.Name = "btn_autoVendedor";
-            btn_autoVendedor.Size = new Size(122, 40);
-            btn_autoVendedor.TabIndex = 1;
-            btn_autoVendedor.Text = "AUTO. VENDEDOR";
-            btn_autoVendedor.UseVisualStyleBackColor = true;
-            btn_autoVendedor.Click += btn_autoVendedor_Click;
+            this.btn_autoVendedor.Location = new System.Drawing.Point(62, 267);
+            this.btn_autoVendedor.Name = "btn_autoVendedor";
+            this.btn_autoVendedor.Size = new System.Drawing.Size(122, 40);
+            this.btn_autoVendedor.TabIndex = 1;
+            this.btn_autoVendedor.Text = "AUTO. VENDEDOR";
+            this.btn_autoVendedor.UseVisualStyleBackColor = true;
+            this.btn_autoVendedor.Click += new System.EventHandler(this.btn_autoVendedor_Click);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(178, 119);
-            label1.Name = "label1";
-            label1.Size = new Size(47, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(62, 220);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuario";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(178, 220);
-            label2.Name = "label2";
-            label2.Size = new Size(67, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Contraseña";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(271, 220);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Contraseña";
             // 
             // tb_usuario
             // 
-            tb_usuario.BackColor = SystemColors.InactiveCaption;
-            tb_usuario.Location = new Point(178, 137);
-            tb_usuario.Name = "tb_usuario";
-            tb_usuario.Size = new Size(180, 23);
-            tb_usuario.TabIndex = 4;
+            this.tb_usuario.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_usuario.Location = new System.Drawing.Point(62, 238);
+            this.tb_usuario.Name = "tb_usuario";
+            this.tb_usuario.Size = new System.Drawing.Size(180, 23);
+            this.tb_usuario.TabIndex = 4;
             // 
             // tb_contra
             // 
-            tb_contra.BackColor = SystemColors.InactiveCaption;
-            tb_contra.Location = new Point(178, 238);
-            tb_contra.Name = "tb_contra";
-            tb_contra.PasswordChar = '*';
-            tb_contra.Size = new Size(180, 23);
-            tb_contra.TabIndex = 5;
+            this.tb_contra.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_contra.Location = new System.Drawing.Point(271, 238);
+            this.tb_contra.Name = "tb_contra";
+            this.tb_contra.PasswordChar = '*';
+            this.tb_contra.Size = new System.Drawing.Size(180, 23);
+            this.tb_contra.TabIndex = 5;
             // 
             // btn_autoCliente
             // 
-            btn_autoCliente.Location = new Point(389, 296);
-            btn_autoCliente.Name = "btn_autoCliente";
-            btn_autoCliente.Size = new Size(122, 40);
-            btn_autoCliente.TabIndex = 6;
-            btn_autoCliente.Text = "AUTO. VENDEDOR";
-            btn_autoCliente.UseVisualStyleBackColor = true;
-            btn_autoCliente.Click += btn_autoCliente_Click;
+            this.btn_autoCliente.Location = new System.Drawing.Point(190, 267);
+            this.btn_autoCliente.Name = "btn_autoCliente";
+            this.btn_autoCliente.Size = new System.Drawing.Size(122, 40);
+            this.btn_autoCliente.TabIndex = 6;
+            this.btn_autoCliente.Text = "AUTO. CLIENTE";
+            this.btn_autoCliente.UseVisualStyleBackColor = true;
+            this.btn_autoCliente.Click += new System.EventHandler(this.btn_autoCliente_Click);
             // 
             // Frm_Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btn_autoCliente);
-            Controls.Add(tb_contra);
-            Controls.Add(tb_usuario);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(btn_autoVendedor);
-            Controls.Add(btn_login);
-            Name = "Frm_Login";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "CARNICERIA";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(583, 330);
+            this.Controls.Add(this.btn_autoCliente);
+            this.Controls.Add(this.tb_contra);
+            this.Controls.Add(this.tb_usuario);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_autoVendedor);
+            this.Controls.Add(this.btn_login);
+            this.Name = "Frm_Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CARNICERIA";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

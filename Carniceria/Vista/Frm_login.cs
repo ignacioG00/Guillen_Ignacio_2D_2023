@@ -1,4 +1,5 @@
 using Carniceria;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
@@ -11,20 +12,21 @@ namespace Vista
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            
-            foreach (var item in collection)
-            { }
-               
+            Frm_Heladera heladera = new Frm_Heladera();
+            Frm_Compra compras = new Frm_Compra();
+            Usuario userAux= Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
 
-
-                
-            if (Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text) == )
+            if (Negocio.SelectorUsuario(userAux.Dni)== "vendedor")
             {
-                
+                heladera.Show();
+                compras.Show();
             }
-                
+            else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
+            {
+                compras.Show();
+            }
+            
         }
-
         private void btn_autoVendedor_Click(object sender, EventArgs e)
         {
             tb_usuario.Text = "21564";

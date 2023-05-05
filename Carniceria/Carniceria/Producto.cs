@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carniceria
 {
-    internal class Producto
+    public class Producto
     {
         private decimal precioPorKilo;
         private decimal stock;
@@ -21,8 +21,6 @@ namespace Carniceria
 
         public decimal PrecioPorKilo { get { return precioPorKilo; } }
         public decimal Stock { get { return stock; } set { stock = value; } }
-        public string CorteDeCarne { get { return corteDeCarne; } } 
-
-
+        public string CorteDeCarne { get { return corteDeCarne; } }
     }
 }

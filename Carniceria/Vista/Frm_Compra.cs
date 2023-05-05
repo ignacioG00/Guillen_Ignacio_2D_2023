@@ -16,5 +16,15 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void Frm_Compra_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Frm_Compra_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

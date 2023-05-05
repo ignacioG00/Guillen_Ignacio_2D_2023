@@ -9,28 +9,26 @@ namespace Carniceria
 {
     public static class Negocio
     {
-        static List<Producto> productos = new List<Producto>();
-        static List<Cliente> clientes = new List<Cliente>();
-        static List<Vendedor> vendedores = new List<Vendedor>();
+        static List<Producto> listaCarnes;
+        static List<Cliente> clientes ;
+        static List<Vendedor> vendedores;
         static Heladera heladera;
-        private static object Frm_Heladera;
 
-        internal static List<Producto> Productos { get => productos; set => productos = value; }
-        internal static List<Cliente> Clientes { get => clientes; set => clientes = value; }
-        internal static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
-        internal static Heladera Heladera { get => heladera; set => heladera = value; }
+         public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
+         static List<Cliente> Clientes { get => clientes; set => clientes = value; }
+         static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
+         public static Heladera Heladera { get => heladera; set => heladera = value; }
 
         static Negocio()
         {
-            InstanciarProductos();
-            InstanciarHeladera();
             InstanciarClientes();
             InstanciarVendedores();
+            HardcodearProductos();
         }
 
-        private static void InstanciarProductos() 
+        public static void HardcodearProductos() 
         {
-            Productos = new List<Producto>()
+           listaCarnes = new List<Producto>()
             {
                 new Producto(1000, 10, "Bondiola"),
                 new Producto(1200, 10, "Vacio"),
@@ -38,25 +36,21 @@ namespace Carniceria
                 new Producto(2500, 10, "Choripan"),
                 new Producto(1800, 10, "Costillar")
             };
+            heladera = new Heladera(listaCarnes) ;
         }
-
-        private static void InstanciarHeladera() 
+        public static void InstanciarClientes()
         {
-            Heladera = new Heladera(Productos);
-        }
-        private static void InstanciarClientes()
-        {
-            Clientes = new List<Cliente>()
+            clientes = new List<Cliente>()
             {
                 new Cliente(20000,null,"Ricardo",22222,"ric123"),
-            new Cliente(20000,null,"Ramon",21563, "ric123"),
+                new Cliente(20000,null,"Ramon",21563, "ric123"),
                 new Cliente(20000,null,"Romualdo",21562, "ric123")
                 //int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, string contraseña
             };
         }
-        private static void InstanciarVendedores()
+        public static void InstanciarVendedores()
         {
-            Vendedores = new List<Vendedor>()
+            vendedores = new List<Vendedor>()
             {
                 new Vendedor("Lucas",21564,"1234"),
                 new Vendedor("Leo",21563, "1234"),
@@ -79,7 +73,7 @@ namespace Carniceria
             return null;
         }
 
-        public static void SelectorUsuario(int idUser)
+        public static string SelectorUsuario(int idUser)
         {
             
             foreach (var cli in clientes)
@@ -87,19 +81,17 @@ namespace Carniceria
                 
                 if (idUser == cli.Dni)
                 {
-                    return Frm_Heladera;
+                    return "cliente";
                 }
             }
             foreach (var vend in vendedores)
             {
                 if (idUser == vend.Dni)
                 {
-                    return Form.Show();
+                    return "vendedor";
                 }
             }
-
-
+            return null;
         }
-
     }
 }
