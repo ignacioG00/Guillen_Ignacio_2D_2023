@@ -29,18 +29,14 @@ namespace Carniceria
             }
         }
 
-        public void QuitarProducto(List<Producto> carnes, Producto producto, decimal cantidad) 
+        public void QuitarProducto(List<Producto> carnes, string producto, decimal cantidad) 
         {
             foreach (Producto p in carnes)
             {
-                if (p.CorteDeCarne == producto.CorteDeCarne && p.Stock > cantidad)
+                if (p.CorteDeCarne == producto && p.Stock > cantidad)
                 {
                     p.Stock -= cantidad;
                     break; // Detener la iteración una vez que se ha encontrado el producto
-                }
-                else
-                {
-                    break;
                 }
             }
         }

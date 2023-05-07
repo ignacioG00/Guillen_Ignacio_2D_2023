@@ -41,6 +41,10 @@
             this.lb_total = new System.Windows.Forms.Label();
             this.btn_anotarPedido = new System.Windows.Forms.Button();
             this.btn_anularCompra = new System.Windows.Forms.Button();
+            this.cb_listaUsuarios = new System.Windows.Forms.ComboBox();
+            this.lb_venderA = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_actualizarLista = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +114,7 @@
             // 
             // rtb_cuenta
             // 
-            this.rtb_cuenta.Location = new System.Drawing.Point(467, 64);
+            this.rtb_cuenta.Location = new System.Drawing.Point(496, 64);
             this.rtb_cuenta.Name = "rtb_cuenta";
             this.rtb_cuenta.Size = new System.Drawing.Size(202, 300);
             this.rtb_cuenta.TabIndex = 16;
@@ -119,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 184);
+            this.label2.Location = new System.Drawing.Point(75, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 15);
             this.label2.TabIndex = 17;
@@ -150,29 +154,71 @@
             // 
             // btn_anotarPedido
             // 
-            this.btn_anotarPedido.Location = new System.Drawing.Point(87, 248);
+            this.btn_anotarPedido.Location = new System.Drawing.Point(513, 370);
             this.btn_anotarPedido.Name = "btn_anotarPedido";
             this.btn_anotarPedido.Size = new System.Drawing.Size(120, 23);
             this.btn_anotarPedido.TabIndex = 20;
-            this.btn_anotarPedido.Text = "AGREGAR CARNE";
+            this.btn_anotarPedido.Text = "REALIZAR COMPRA";
             this.btn_anotarPedido.UseVisualStyleBackColor = true;
             this.btn_anotarPedido.Click += new System.EventHandler(this.btn_anotarPedido_Click);
             // 
             // btn_anularCompra
             // 
-            this.btn_anularCompra.Location = new System.Drawing.Point(222, 248);
+            this.btn_anularCompra.Location = new System.Drawing.Point(387, 370);
             this.btn_anularCompra.Name = "btn_anularCompra";
             this.btn_anularCompra.Size = new System.Drawing.Size(120, 23);
             this.btn_anularCompra.TabIndex = 21;
-            this.btn_anularCompra.Text = "ANULAR COMPRA";
+            this.btn_anularCompra.Text = "LIMPIAR FACTURAS";
             this.btn_anularCompra.UseVisualStyleBackColor = true;
-            this.btn_anularCompra.Click += new System.EventHandler(this.button1_Click);
+            this.btn_anularCompra.Click += new System.EventHandler(this.btn_anularCompra_Click);
+            // 
+            // cb_listaUsuarios
+            // 
+            this.cb_listaUsuarios.FormattingEnabled = true;
+            this.cb_listaUsuarios.Location = new System.Drawing.Point(260, 75);
+            this.cb_listaUsuarios.Name = "cb_listaUsuarios";
+            this.cb_listaUsuarios.Size = new System.Drawing.Size(121, 23);
+            this.cb_listaUsuarios.TabIndex = 22;
+            // 
+            // lb_venderA
+            // 
+            this.lb_venderA.AutoSize = true;
+            this.lb_venderA.BackColor = System.Drawing.Color.Transparent;
+            this.lb_venderA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.lb_venderA.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lb_venderA.Location = new System.Drawing.Point(260, 57);
+            this.lb_venderA.Name = "lb_venderA";
+            this.lb_venderA.Size = new System.Drawing.Size(58, 15);
+            this.lb_venderA.TabIndex = 23;
+            this.lb_venderA.Text = "Vender a :";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(639, 370);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "REALIZAR PAGO";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btn_actualizarLista
+            // 
+            this.btn_actualizarLista.Location = new System.Drawing.Point(12, 259);
+            this.btn_actualizarLista.Name = "btn_actualizarLista";
+            this.btn_actualizarLista.Size = new System.Drawing.Size(129, 23);
+            this.btn_actualizarLista.TabIndex = 25;
+            this.btn_actualizarLista.Text = "ACTUALIZAR STOCK";
+            this.btn_actualizarLista.UseVisualStyleBackColor = true;
             // 
             // Frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_actualizarLista);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lb_venderA);
+            this.Controls.Add(this.cb_listaUsuarios);
             this.Controls.Add(this.btn_anularCompra);
             this.Controls.Add(this.btn_anotarPedido);
             this.Controls.Add(this.lb_total);
@@ -185,6 +231,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Frm_Compra";
             this.Text = "Frm_Compra";
+            this.Load += new System.EventHandler(this.Frm_Compra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,5 +254,9 @@
         private Button button1;
         private Button btn_anularCompra;
         private Label lb_total;
+        private ComboBox cb_listaUsuarios;
+        private Label lb_venderA;
+        private Button button2;
+        private Button btn_actualizarLista;
     }
 }

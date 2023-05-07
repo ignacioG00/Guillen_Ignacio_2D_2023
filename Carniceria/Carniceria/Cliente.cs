@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carniceria
 {
-    internal class Cliente : Usuario
+    public class Cliente : Usuario
     {
         int montoMax;
         List<Producto> productosComprados = new();

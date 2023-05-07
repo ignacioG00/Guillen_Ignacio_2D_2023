@@ -67,5 +67,9 @@ namespace Vista
             ActualizarListas();
         }
 
+        private void btn_actualizarLista_Click(object sender, EventArgs e)
+        {
+            ActualizarListas();
+        }
     }
 }

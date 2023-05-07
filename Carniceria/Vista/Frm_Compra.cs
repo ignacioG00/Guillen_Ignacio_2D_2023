@@ -16,7 +16,8 @@ namespace Vista
     {
         decimal cuenta = 0;
         decimal total = 0;
-        decimal kilosLlevados= 0;
+
+        decimal kilosLlevados = 0;
         public Frm_Compra()
         {
             InitializeComponent();
@@ -38,46 +39,71 @@ namespace Vista
 
         private void btn_anotarPedido_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tb_kg.Text))
+            DialogResult resultado = MessageBox.Show("DESEA REALIZAR LA VENTA?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
             {
-                kilosLlevados += Decimal.Parse(tb_kg.Text);
-                foreach (var item in clb_carnes.CheckedItems)
-                {
-                    foreach (var tipoCarne in Negocio.Heladera.ListaCarnes)
-                    {
-                        if (tipoCarne.CorteDeCarne == item.ToString())
-                        {
-                            
-                            cuenta = tipoCarne.PrecioPorKilo * Decimal.Parse(tb_kg.Text);
-                            total += cuenta;
-                            rtb_cuenta.AppendText(item.ToString() + kilosLlevados + " kg" + "\n");
-                        }
-                    }
-                    rtb_cuenta.AppendText(cuenta + "\n");
-                }
-                rtb_cuenta.AppendText("----------------------------\n");
-                rtb_cuenta.AppendText("Esta gastando: " + total + "$" + "\n");
-                rtb_cuenta.AppendText("----------------------------\n");
-                lb_total.Text = "total: " + total + " PESOS";
+                HacerPedido();
+                
             }
             else
             {
-                MessageBox.Show("ERROR NO COLOCO NINGUNA CANTIDAD EN KILOS!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("VENTA ANULADA", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Frm_Compra_Load(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("DESEA ANULAR LA COMPRA? SE BORRARA TODO EL PEDIDO MARCADO", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            for (int i = 0; i < Negocio.Clientes.Count; i++)
+            {
+                cb_listaUsuarios.Items.Add(Negocio.Clientes[i].Nombre);
+            }
+
+        }
+
+        private void btn_anularCompra_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEA BORRAR LA LISTA DE VENTAS? SE BORRARAN LOS PEDIDOS DETALLADOS", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resultado == DialogResult.Yes)
             {
                 rtb_cuenta.Clear();
                 lb_total.Text = "total: ";
-                cuenta = 0;
-                total = 0;
+            }
+
+        }
+
+        private void HacerPedido()
+        {
+            if (!string.IsNullOrEmpty(tb_kg.Text))
+            {
+                kilosLlevados += Decimal.Parse(tb_kg.Text);
+
+                foreach (var item in clb_carnes.CheckedItems)
+                {
+                    for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
+                    {
+                        if (item.ToString() == Negocio.Heladera.ListaCarnes[i].CorteDeCarne)
+                        {
+                            cuenta = Negocio.Heladera.ListaCarnes[i].PrecioPorKilo * Decimal.Parse(tb_kg.Text);
+                            Negocio.Heladera.QuitarProducto(Negocio.Heladera.ListaCarnes, item.ToString(), kilosLlevados);
+                            total += cuenta;
+                            rtb_cuenta.AppendText(item.ToString() + " " + kilosLlevados + " kg" + "\n");
+                        }
+                    }
+                    rtb_cuenta.AppendText(cuenta + "\n");
+                }
                 kilosLlevados = 0;
+                rtb_cuenta.AppendText("----------------------------\n");
+                rtb_cuenta.AppendText("Esta gastando: " + total + "$" + "\n");
+                rtb_cuenta.AppendText("----------------------------\n");
+                lb_total.Text = "total: " + total + " PESOS";
+                ActualizarListas();
+            }
+            else
+            {
+                MessageBox.Show("ERROR NO COLOCO NINGUNA CANTIDAD EN KILOS!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

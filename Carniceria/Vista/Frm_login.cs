@@ -18,11 +18,14 @@ namespace Vista
 
             if (Negocio.SelectorUsuario(userAux.Dni)== "vendedor")
             {
+                heladera.BackColor = Color.Red;
                 heladera.Show();
+                compras.BackColor = Color.Red;  
                 compras.Show();
             }
             else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
             {
+                compras.BackColor = Color.Green;
                 compras.Show();
             }
             

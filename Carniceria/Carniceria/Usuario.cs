@@ -15,15 +15,18 @@
         public string Nombre
         {
             get { return nombre; }
+            set { nombre = value; }
         }
         public int Dni 
         {
             get { return dni; }
+            set { dni = value; }    
         }
 
         public string Contraseña 
         {
             get { return contraseña; }
+            set { contraseña = value; }
         }
 
         public bool ComprobarContra(string datoIngresado)

@@ -15,7 +15,7 @@ namespace Carniceria
         static Heladera heladera;
 
          public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
-         static List<Cliente> Clientes { get => clientes; set => clientes = value; }
+         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
          static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
          public static Heladera Heladera { get => heladera; set => heladera = value; }
 
@@ -26,19 +26,19 @@ namespace Carniceria
             HardcodearProductos();
         }
 
-        public static void HardcodearProductos() 
+         static void HardcodearProductos() 
         {
            listaCarnes = new List<Producto>()
             {
                 new Producto(1000, 10, "Bondiola"),
                 new Producto(1200, 10, "Vacio"),
                 new Producto(1500, 10, "Tira de Asado"),
-                new Producto(2500, 10, "Choripan"),
+                new Producto(2500, 10, "Chorizo"),
                 new Producto(1800, 10, "Costillar")
             };
             heladera = new Heladera(listaCarnes) ;
         }
-        public static void InstanciarClientes()
+         static void InstanciarClientes()
         {
             clientes = new List<Cliente>()
             {
@@ -48,7 +48,7 @@ namespace Carniceria
                 //int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, string contraseña
             };
         }
-        public static void InstanciarVendedores()
+        static void InstanciarVendedores()
         {
             vendedores = new List<Vendedor>()
             {
