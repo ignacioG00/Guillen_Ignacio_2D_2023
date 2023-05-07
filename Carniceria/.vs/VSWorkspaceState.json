@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Carniceria"
+    "\\Carniceria",
+    "\\Vista",
+    "\\Vista\\bin"
   ],
   "SelectedNode": "\\Carniceria.sln",
   "PreviewInSolutionExplorer": false

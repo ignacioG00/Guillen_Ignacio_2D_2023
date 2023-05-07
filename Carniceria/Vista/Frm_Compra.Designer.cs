@@ -41,9 +41,9 @@
             this.lb_total = new System.Windows.Forms.Label();
             this.btn_anotarPedido = new System.Windows.Forms.Button();
             this.btn_anularCompra = new System.Windows.Forms.Button();
-            this.cb_listaUsuarios = new System.Windows.Forms.ComboBox();
+            this.cb_listaClientes = new System.Windows.Forms.ComboBox();
             this.lb_venderA = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_realizarPago = new System.Windows.Forms.Button();
             this.btn_actualizarLista = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).BeginInit();
             this.SuspendLayout();
@@ -158,7 +158,7 @@
             this.btn_anotarPedido.Name = "btn_anotarPedido";
             this.btn_anotarPedido.Size = new System.Drawing.Size(120, 23);
             this.btn_anotarPedido.TabIndex = 20;
-            this.btn_anotarPedido.Text = "REALIZAR COMPRA";
+            this.btn_anotarPedido.Text = "AGREGAR PEDIDO";
             this.btn_anotarPedido.UseVisualStyleBackColor = true;
             this.btn_anotarPedido.Click += new System.EventHandler(this.btn_anotarPedido_Click);
             // 
@@ -168,17 +168,17 @@
             this.btn_anularCompra.Name = "btn_anularCompra";
             this.btn_anularCompra.Size = new System.Drawing.Size(120, 23);
             this.btn_anularCompra.TabIndex = 21;
-            this.btn_anularCompra.Text = "LIMPIAR FACTURAS";
+            this.btn_anularCompra.Text = "ANULAR COMPRA";
             this.btn_anularCompra.UseVisualStyleBackColor = true;
             this.btn_anularCompra.Click += new System.EventHandler(this.btn_anularCompra_Click);
             // 
-            // cb_listaUsuarios
+            // cb_listaClientes
             // 
-            this.cb_listaUsuarios.FormattingEnabled = true;
-            this.cb_listaUsuarios.Location = new System.Drawing.Point(260, 75);
-            this.cb_listaUsuarios.Name = "cb_listaUsuarios";
-            this.cb_listaUsuarios.Size = new System.Drawing.Size(121, 23);
-            this.cb_listaUsuarios.TabIndex = 22;
+            this.cb_listaClientes.FormattingEnabled = true;
+            this.cb_listaClientes.Location = new System.Drawing.Point(260, 75);
+            this.cb_listaClientes.Name = "cb_listaClientes";
+            this.cb_listaClientes.Size = new System.Drawing.Size(121, 23);
+            this.cb_listaClientes.TabIndex = 22;
             // 
             // lb_venderA
             // 
@@ -192,14 +192,15 @@
             this.lb_venderA.TabIndex = 23;
             this.lb_venderA.Text = "Vender a :";
             // 
-            // button2
+            // btn_realizarPago
             // 
-            this.button2.Location = new System.Drawing.Point(639, 370);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "REALIZAR PAGO";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_realizarPago.Location = new System.Drawing.Point(639, 370);
+            this.btn_realizarPago.Name = "btn_realizarPago";
+            this.btn_realizarPago.Size = new System.Drawing.Size(120, 23);
+            this.btn_realizarPago.TabIndex = 24;
+            this.btn_realizarPago.Text = "REALIZAR PAGO";
+            this.btn_realizarPago.UseVisualStyleBackColor = true;
+            this.btn_realizarPago.Click += new System.EventHandler(this.btn_realizarPago_Click);
             // 
             // btn_actualizarLista
             // 
@@ -209,6 +210,7 @@
             this.btn_actualizarLista.TabIndex = 25;
             this.btn_actualizarLista.Text = "ACTUALIZAR STOCK";
             this.btn_actualizarLista.UseVisualStyleBackColor = true;
+            this.btn_actualizarLista.Click += new System.EventHandler(this.btn_actualizarLista_Click);
             // 
             // Frm_Compra
             // 
@@ -216,9 +218,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_actualizarLista);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_realizarPago);
             this.Controls.Add(this.lb_venderA);
-            this.Controls.Add(this.cb_listaUsuarios);
+            this.Controls.Add(this.cb_listaClientes);
             this.Controls.Add(this.btn_anularCompra);
             this.Controls.Add(this.btn_anotarPedido);
             this.Controls.Add(this.lb_total);
@@ -254,9 +256,9 @@
         private Button button1;
         private Button btn_anularCompra;
         private Label lb_total;
-        private ComboBox cb_listaUsuarios;
+        private ComboBox cb_listaClientes;
         private Label lb_venderA;
-        private Button button2;
+        private Button btn_realizarPago;
         private Button btn_actualizarLista;
     }
 }

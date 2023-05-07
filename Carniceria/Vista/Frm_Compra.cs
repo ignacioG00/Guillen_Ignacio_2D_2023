@@ -16,8 +16,16 @@ namespace Vista
     {
         decimal cuenta = 0;
         decimal total = 0;
-
         decimal kilosLlevados = 0;
+        List<Producto> listAux = new List<Producto>() 
+        {
+            new Producto(1000, 0, "Bondiola"),
+            new Producto(1200, 0, "Vacio"),
+            new Producto(1500, 0, "Tira de Asado"),
+            new Producto(2500, 0, "Chorizo"),
+            new Producto(1800, 0, "Costillar")
+        };
+
         public Frm_Compra()
         {
             InitializeComponent();
@@ -44,12 +52,11 @@ namespace Vista
             if (resultado == DialogResult.Yes)
             {
                 HacerPedido();
-                
             }
             else
             {
                 MessageBox.Show("VENTA ANULADA", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+               
             }
         }
 
@@ -57,7 +64,7 @@ namespace Vista
         {
             for (int i = 0; i < Negocio.Clientes.Count; i++)
             {
-                cb_listaUsuarios.Items.Add(Negocio.Clientes[i].Nombre);
+                cb_listaClientes.Items.Add(Negocio.Clientes[i].Nombre);
             }
 
         }
@@ -68,24 +75,43 @@ namespace Vista
 
             if (resultado == DialogResult.Yes)
             {
-                rtb_cuenta.Clear();
-                lb_total.Text = "total: ";
+                AnularPedidos();
             }
 
         }
 
+        private void AnularPedidos() 
+        {
+            rtb_cuenta.Clear();
+            lb_total.Text = "total: ";
+            cuenta = 0;
+            total = 0;
+            foreach (var item in Negocio.Heladera.ListaCarnes)
+            {
+                for (int i = 0; i < listAux.Count; i++)
+                {
+                    if (item.CorteDeCarne == listAux[i].CorteDeCarne)
+                    {
+                        item.Stock += listAux[i].Stock;
+                        listAux[i].Stock = 0;
+                    }
+                }
+            }
+        }
+
         private void HacerPedido()
         {
+
             if (!string.IsNullOrEmpty(tb_kg.Text))
             {
                 kilosLlevados += Decimal.Parse(tb_kg.Text);
-
                 foreach (var item in clb_carnes.CheckedItems)
                 {
                     for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
                     {
                         if (item.ToString() == Negocio.Heladera.ListaCarnes[i].CorteDeCarne)
                         {
+                            listAux[i].Stock += kilosLlevados;
                             cuenta = Negocio.Heladera.ListaCarnes[i].PrecioPorKilo * Decimal.Parse(tb_kg.Text);
                             Negocio.Heladera.QuitarProducto(Negocio.Heladera.ListaCarnes, item.ToString(), kilosLlevados);
                             total += cuenta;
@@ -100,10 +126,30 @@ namespace Vista
                 rtb_cuenta.AppendText("----------------------------\n");
                 lb_total.Text = "total: " + total + " PESOS";
                 ActualizarListas();
+
             }
             else
             {
                 MessageBox.Show("ERROR NO COLOCO NINGUNA CANTIDAD EN KILOS!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_actualizarLista_Click(object sender, EventArgs e)
+        {
+            ActualizarListas();
+        }
+
+        private void btn_realizarPago_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEA REALIZAR EL PAGO? \n" + rtb_cuenta.Text, "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                
+            }
+            else
+            {
+                AnularPedidos();
             }
         }
     }
