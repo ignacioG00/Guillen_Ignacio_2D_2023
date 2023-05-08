@@ -14,13 +14,14 @@ namespace Carniceria
 
         public Producto(decimal precioPorKilo, decimal stock, string corteDeCarne)
         {
-            this.precioPorKilo = precioPorKilo;
+            this.PrecioPorKilo = precioPorKilo;
             this.stock = stock;
             this.corteDeCarne = corteDeCarne;
         }
 
-        public decimal PrecioPorKilo { get { return precioPorKilo; } }
         public decimal Stock { get { return stock; } set { stock = value; } }
         public string CorteDeCarne { get { return corteDeCarne; } }
+
+        public decimal PrecioPorKilo { get => precioPorKilo; set => precioPorKilo = value; }
     }
 }

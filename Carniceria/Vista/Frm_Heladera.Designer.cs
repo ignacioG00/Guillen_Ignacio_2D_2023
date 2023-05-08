@@ -28,168 +28,238 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lb_Titulo = new System.Windows.Forms.Label();
-            this.btn_bondiola = new System.Windows.Forms.Button();
-            this.btn_vacio = new System.Windows.Forms.Button();
-            this.btn_tiraAsado = new System.Windows.Forms.Button();
-            this.btn_chorizo = new System.Windows.Forms.Button();
-            this.btn_costillar = new System.Windows.Forms.Button();
-            this.dgv_listaCarnes = new System.Windows.Forms.DataGridView();
-            this.corteCarne = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lb_reponer = new System.Windows.Forms.Label();
-            this.btn_actualizarLista = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).BeginInit();
-            this.SuspendLayout();
+            lb_Titulo = new Label();
+            btn_bondiola = new Button();
+            btn_vacio = new Button();
+            btn_tiraAsado = new Button();
+            btn_chorizo = new Button();
+            btn_costillar = new Button();
+            dgv_listaCarnes = new DataGridView();
+            corteCarne = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            lb_reponer = new Label();
+            btn_actualizarLista = new Button();
+            btn_fijarPrecioxKilo = new Button();
+            tb_fijarPrecio = new TextBox();
+            cb_listaCarnes = new ComboBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgv_listaCarnes).BeginInit();
+            SuspendLayout();
             // 
             // lb_Titulo
             // 
-            this.lb_Titulo.AutoSize = true;
-            this.lb_Titulo.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Titulo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_Titulo.ForeColor = System.Drawing.Color.Black;
-            this.lb_Titulo.Location = new System.Drawing.Point(126, 9);
-            this.lb_Titulo.Name = "lb_Titulo";
-            this.lb_Titulo.Size = new System.Drawing.Size(147, 37);
-            this.lb_Titulo.TabIndex = 0;
-            this.lb_Titulo.Text = "HELADERA";
+            lb_Titulo.AutoSize = true;
+            lb_Titulo.BackColor = Color.Transparent;
+            lb_Titulo.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_Titulo.ForeColor = Color.Black;
+            lb_Titulo.Location = new Point(126, 9);
+            lb_Titulo.Name = "lb_Titulo";
+            lb_Titulo.Size = new Size(147, 37);
+            lb_Titulo.TabIndex = 0;
+            lb_Titulo.Text = "HELADERA";
             // 
             // btn_bondiola
             // 
-            this.btn_bondiola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_bondiola.Location = new System.Drawing.Point(14, 103);
-            this.btn_bondiola.Name = "btn_bondiola";
-            this.btn_bondiola.Size = new System.Drawing.Size(73, 35);
-            this.btn_bondiola.TabIndex = 1;
-            this.btn_bondiola.Text = "Bondiola";
-            this.btn_bondiola.UseVisualStyleBackColor = false;
-            this.btn_bondiola.Click += new System.EventHandler(this.btn_bondiola_Click);
+            btn_bondiola.BackColor = Color.FromArgb(224, 224, 224);
+            btn_bondiola.Location = new Point(14, 103);
+            btn_bondiola.Name = "btn_bondiola";
+            btn_bondiola.Size = new Size(73, 35);
+            btn_bondiola.TabIndex = 1;
+            btn_bondiola.Text = "Bondiola";
+            btn_bondiola.UseVisualStyleBackColor = false;
+            btn_bondiola.Click += btn_bondiola_Click;
             // 
             // btn_vacio
             // 
-            this.btn_vacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_vacio.Location = new System.Drawing.Point(89, 103);
-            this.btn_vacio.Name = "btn_vacio";
-            this.btn_vacio.Size = new System.Drawing.Size(73, 35);
-            this.btn_vacio.TabIndex = 2;
-            this.btn_vacio.Text = "Vacio";
-            this.btn_vacio.UseVisualStyleBackColor = false;
-            this.btn_vacio.Click += new System.EventHandler(this.btn_vacio_Click);
+            btn_vacio.BackColor = Color.FromArgb(224, 224, 224);
+            btn_vacio.Location = new Point(89, 103);
+            btn_vacio.Name = "btn_vacio";
+            btn_vacio.Size = new Size(73, 35);
+            btn_vacio.TabIndex = 2;
+            btn_vacio.Text = "Vacio";
+            btn_vacio.UseVisualStyleBackColor = false;
+            btn_vacio.Click += btn_vacio_Click;
             // 
             // btn_tiraAsado
             // 
-            this.btn_tiraAsado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_tiraAsado.Location = new System.Drawing.Point(164, 103);
-            this.btn_tiraAsado.Name = "btn_tiraAsado";
-            this.btn_tiraAsado.Size = new System.Drawing.Size(73, 35);
-            this.btn_tiraAsado.TabIndex = 3;
-            this.btn_tiraAsado.Text = "Asado";
-            this.btn_tiraAsado.UseVisualStyleBackColor = false;
-            this.btn_tiraAsado.Click += new System.EventHandler(this.btn_tiraAsado_Click);
+            btn_tiraAsado.BackColor = Color.FromArgb(224, 224, 224);
+            btn_tiraAsado.Location = new Point(164, 103);
+            btn_tiraAsado.Name = "btn_tiraAsado";
+            btn_tiraAsado.Size = new Size(73, 35);
+            btn_tiraAsado.TabIndex = 3;
+            btn_tiraAsado.Text = "Asado";
+            btn_tiraAsado.UseVisualStyleBackColor = false;
+            btn_tiraAsado.Click += btn_tiraAsado_Click;
             // 
             // btn_chorizo
             // 
-            this.btn_chorizo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_chorizo.Location = new System.Drawing.Point(239, 103);
-            this.btn_chorizo.Name = "btn_chorizo";
-            this.btn_chorizo.Size = new System.Drawing.Size(73, 35);
-            this.btn_chorizo.TabIndex = 4;
-            this.btn_chorizo.Text = "Chorizo";
-            this.btn_chorizo.UseVisualStyleBackColor = false;
-            this.btn_chorizo.Click += new System.EventHandler(this.btn_chorizo_Click);
+            btn_chorizo.BackColor = Color.FromArgb(224, 224, 224);
+            btn_chorizo.Location = new Point(239, 103);
+            btn_chorizo.Name = "btn_chorizo";
+            btn_chorizo.Size = new Size(73, 35);
+            btn_chorizo.TabIndex = 4;
+            btn_chorizo.Text = "Chorizo";
+            btn_chorizo.UseVisualStyleBackColor = false;
+            btn_chorizo.Click += btn_chorizo_Click;
             // 
             // btn_costillar
             // 
-            this.btn_costillar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_costillar.Location = new System.Drawing.Point(314, 103);
-            this.btn_costillar.Name = "btn_costillar";
-            this.btn_costillar.Size = new System.Drawing.Size(73, 35);
-            this.btn_costillar.TabIndex = 5;
-            this.btn_costillar.Text = "Costillar";
-            this.btn_costillar.UseVisualStyleBackColor = false;
-            this.btn_costillar.Click += new System.EventHandler(this.btn_costillar_Click);
+            btn_costillar.BackColor = Color.FromArgb(224, 224, 224);
+            btn_costillar.Location = new Point(314, 103);
+            btn_costillar.Name = "btn_costillar";
+            btn_costillar.Size = new Size(73, 35);
+            btn_costillar.TabIndex = 5;
+            btn_costillar.Text = "Costillar";
+            btn_costillar.UseVisualStyleBackColor = false;
+            btn_costillar.Click += btn_costillar_Click;
             // 
             // dgv_listaCarnes
             // 
-            this.dgv_listaCarnes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_listaCarnes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.corteCarne,
-            this.cantidad,
-            this.precio});
-            this.dgv_listaCarnes.Location = new System.Drawing.Point(12, 173);
-            this.dgv_listaCarnes.Name = "dgv_listaCarnes";
-            this.dgv_listaCarnes.RowTemplate.Height = 25;
-            this.dgv_listaCarnes.Size = new System.Drawing.Size(369, 150);
-            this.dgv_listaCarnes.TabIndex = 6;
+            dgv_listaCarnes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_listaCarnes.Columns.AddRange(new DataGridViewColumn[] { corteCarne, cantidad, precio });
+            dgv_listaCarnes.Location = new Point(12, 173);
+            dgv_listaCarnes.Name = "dgv_listaCarnes";
+            dgv_listaCarnes.RowTemplate.Height = 25;
+            dgv_listaCarnes.Size = new Size(369, 150);
+            dgv_listaCarnes.TabIndex = 6;
             // 
             // corteCarne
             // 
-            this.corteCarne.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.corteCarne.HeaderText = "Corte de Carne";
-            this.corteCarne.Name = "corteCarne";
-            this.corteCarne.ReadOnly = true;
+            corteCarne.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            corteCarne.HeaderText = "Corte de Carne";
+            corteCarne.Name = "corteCarne";
+            corteCarne.ReadOnly = true;
             // 
             // cantidad
             // 
-            this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 80;
+            cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            cantidad.HeaderText = "Cantidad";
+            cantidad.Name = "cantidad";
+            cantidad.ReadOnly = true;
+            cantidad.Width = 80;
             // 
             // precio
             // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
+            precio.HeaderText = "Precio";
+            precio.Name = "precio";
+            precio.ReadOnly = true;
             // 
             // lb_reponer
             // 
-            this.lb_reponer.AutoSize = true;
-            this.lb_reponer.BackColor = System.Drawing.Color.Transparent;
-            this.lb_reponer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_reponer.ForeColor = System.Drawing.Color.Black;
-            this.lb_reponer.Location = new System.Drawing.Point(14, 79);
-            this.lb_reponer.Name = "lb_reponer";
-            this.lb_reponer.Size = new System.Drawing.Size(142, 21);
-            this.lb_reponer.TabIndex = 7;
-            this.lb_reponer.Text = "REPONER CARNES";
+            lb_reponer.AutoSize = true;
+            lb_reponer.BackColor = Color.Transparent;
+            lb_reponer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_reponer.ForeColor = Color.Black;
+            lb_reponer.Location = new Point(14, 79);
+            lb_reponer.Name = "lb_reponer";
+            lb_reponer.Size = new Size(142, 21);
+            lb_reponer.TabIndex = 7;
+            lb_reponer.Text = "REPONER CARNES";
             // 
             // btn_actualizarLista
             // 
-            this.btn_actualizarLista.Location = new System.Drawing.Point(12, 144);
-            this.btn_actualizarLista.Name = "btn_actualizarLista";
-            this.btn_actualizarLista.Size = new System.Drawing.Size(129, 23);
-            this.btn_actualizarLista.TabIndex = 22;
-            this.btn_actualizarLista.Text = "ACTUALIZAR STOCK";
-            this.btn_actualizarLista.UseVisualStyleBackColor = true;
-            this.btn_actualizarLista.Click += new System.EventHandler(this.btn_actualizarLista_Click);
+            btn_actualizarLista.Location = new Point(12, 144);
+            btn_actualizarLista.Name = "btn_actualizarLista";
+            btn_actualizarLista.Size = new Size(129, 23);
+            btn_actualizarLista.TabIndex = 22;
+            btn_actualizarLista.Text = "ACTUALIZAR STOCK";
+            btn_actualizarLista.UseVisualStyleBackColor = true;
+            btn_actualizarLista.Click += btn_actualizarLista_Click;
+            // 
+            // btn_fijarPrecioxKilo
+            // 
+            btn_fijarPrecioxKilo.BackColor = Color.FromArgb(224, 224, 224);
+            btn_fijarPrecioxKilo.Location = new Point(401, 260);
+            btn_fijarPrecioxKilo.Name = "btn_fijarPrecioxKilo";
+            btn_fijarPrecioxKilo.Size = new Size(160, 30);
+            btn_fijarPrecioxKilo.TabIndex = 23;
+            btn_fijarPrecioxKilo.Text = "FIJAR PRECIO POR KILO";
+            btn_fijarPrecioxKilo.UseVisualStyleBackColor = false;
+            btn_fijarPrecioxKilo.Click += btn_fijarPrecioxKilo_Click;
+            // 
+            // tb_fijarPrecio
+            // 
+            tb_fijarPrecio.Location = new Point(401, 231);
+            tb_fijarPrecio.Name = "tb_fijarPrecio";
+            tb_fijarPrecio.Size = new Size(160, 23);
+            tb_fijarPrecio.TabIndex = 24;
+            // 
+            // cb_listaCarnes
+            // 
+            cb_listaCarnes.FormattingEnabled = true;
+            cb_listaCarnes.Location = new Point(401, 181);
+            cb_listaCarnes.Name = "cb_listaCarnes";
+            cb_listaCarnes.Size = new Size(160, 23);
+            cb_listaCarnes.TabIndex = 25;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(401, 117);
+            label2.Name = "label2";
+            label2.Size = new Size(154, 21);
+            label2.TabIndex = 26;
+            label2.Text = "FIJAR PRECIO X KILO";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(401, 157);
+            label3.Name = "label3";
+            label3.Size = new Size(115, 21);
+            label3.TabIndex = 27;
+            label3.Text = "Lista de carnes:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(401, 207);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 21);
+            label4.TabIndex = 28;
+            label4.Text = "Precio x kg:";
             // 
             // Frm_Heladera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(397, 350);
-            this.Controls.Add(this.btn_actualizarLista);
-            this.Controls.Add(this.lb_reponer);
-            this.Controls.Add(this.dgv_listaCarnes);
-            this.Controls.Add(this.btn_costillar);
-            this.Controls.Add(this.btn_chorizo);
-            this.Controls.Add(this.btn_tiraAsado);
-            this.Controls.Add(this.btn_vacio);
-            this.Controls.Add(this.btn_bondiola);
-            this.Controls.Add(this.lb_Titulo);
-            this.MaximizeBox = false;
-            this.Name = "Frm_Heladera";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Heladera";
-            this.Load += new System.EventHandler(this.Frm_Heladera_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(790, 358);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(cb_listaCarnes);
+            Controls.Add(tb_fijarPrecio);
+            Controls.Add(btn_fijarPrecioxKilo);
+            Controls.Add(btn_actualizarLista);
+            Controls.Add(lb_reponer);
+            Controls.Add(dgv_listaCarnes);
+            Controls.Add(btn_costillar);
+            Controls.Add(btn_chorizo);
+            Controls.Add(btn_tiraAsado);
+            Controls.Add(btn_vacio);
+            Controls.Add(btn_bondiola);
+            Controls.Add(lb_Titulo);
+            MaximizeBox = false;
+            Name = "Frm_Heladera";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "HELADERA";
+            Load += Frm_Heladera_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_listaCarnes).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -209,5 +279,11 @@
         private Button btn_chorizo;
         private Label lb_reponer;
         private Button btn_actualizarLista;
+        private Button btn_fijarPrecioxKilo;
+        private TextBox tb_fijarPrecio;
+        private ComboBox cb_listaCarnes;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

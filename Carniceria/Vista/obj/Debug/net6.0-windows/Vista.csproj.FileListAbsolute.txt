@@ -41,3 +41,6 @@ C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-wind
 C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\Vista.genruntimeconfig.cache
 C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\ref\Vista.dll
 C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\Vista.Properties.Resources.resources
+C:\Users\ignac\OneDrive\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\Vista.Frm_Compra.resources
+C:\Users\ignac\OneDrive\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\Vista.Frm_Heladera.resources
+C:\Users\ignac\OneDrive\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\obj\Debug\net6.0-windows\Vista.Properties.Resources.resources

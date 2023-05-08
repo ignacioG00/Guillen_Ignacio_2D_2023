@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Carniceria",
+    "\\Carniceria\\Vista"
   ],
+  "SelectedNode": "\\Carniceria\\Vista\\Frm_Compra.cs",
   "PreviewInSolutionExplorer": false
 }

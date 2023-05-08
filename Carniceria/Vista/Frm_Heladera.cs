@@ -13,7 +13,7 @@ namespace Vista
 {
     public partial class Frm_Heladera : Form
     {
-       //BindingSource dataGridView1;
+        //BindingSource dataGridView1;
         public Frm_Heladera()
         {
             InitializeComponent();
@@ -22,9 +22,17 @@ namespace Vista
         private void Frm_Heladera_Load(object sender, EventArgs e)
         {
             ActualizarListas();
+            CargarCarnes();
         }
 
-        public void ActualizarListas() 
+        public void CargarCarnes() 
+        {
+            for (int i = 0; i < Negocio.ListaCarnes.Count; i++)
+            {
+                cb_listaCarnes.Items.Add( Negocio.ListaCarnes[i].CorteDeCarne);
+            }
+        }
+        public void ActualizarListas()
         {
             dgv_listaCarnes.Rows.Clear();
             for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
@@ -71,5 +79,17 @@ namespace Vista
         {
             ActualizarListas();
         }
+
+        private void btn_fijarPrecioxKilo_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
+            {
+                if (cb_listaCarnes.Text == Negocio.Heladera.ListaCarnes[i].CorteDeCarne)
+                {
+                    Negocio.Heladera.ListaCarnes[i].PrecioPorKilo = decimal.Parse(tb_fijarPrecio.Text);
+                }
+            }
+        }
+
     }
 }
