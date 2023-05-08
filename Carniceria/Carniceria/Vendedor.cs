@@ -14,16 +14,5 @@ namespace Carniceria
         {
 
         }
-        //public void VenderA(Cliente cliente , Producto producto) 
-        //{
-        //    if (Clientes.Contains(cliente) && Producto.Contains(producto))
-        //    {
-        //        cliente.ComprarProducto(producto, PrecioPorKilo);
-        //        Producto productoVendido = Productos.FirstOrDefault(p => p.Id == producto.Id);
-        //        productoVendido.Cantidad--;
-        //    }
-        //}
-
-
     }
 }

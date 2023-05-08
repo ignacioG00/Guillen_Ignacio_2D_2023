@@ -33,7 +33,19 @@ namespace Vista
             InitializeComponent();
             ActualizarListas();
         }
-
+        private void Frm_Compra_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Negocio.Clientes.Count; i++)
+            {
+                cb_listaClientes.Items.Add(Negocio.Clientes[i].Dni);
+            }
+            if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
+            {
+                cb_listaClientes.Hide();
+                lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
+                MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void btn_anotarPedido_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("DESEA AGREGAR EL PRODUCTO?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -46,20 +58,6 @@ namespace Vista
             {
                 MessageBox.Show("PEDIDO NO CARGADO", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            }
-        }
-
-        private void Frm_Compra_Load(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Negocio.Clientes.Count; i++)
-            {
-                cb_listaClientes.Items.Add(Negocio.Clientes[i].Dni);
-            }
-            if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
-            {
-                cb_listaClientes.Hide();
-                lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
-                MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -86,7 +84,7 @@ namespace Vista
         private void btn_realizarPago_Click(object sender, EventArgs e)
         {
             Cliente clienteAux;
-            if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
+            if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor" && !string.IsNullOrEmpty(tb_montoMax.Text))
             {
                 clienteAux = Cliente.RetornarCliente(int.Parse(cb_listaClientes.Text), Negocio.Clientes);
                 clienteAux.MontoMax = decimal.Parse(tb_montoMax.Text);
@@ -147,15 +145,19 @@ namespace Vista
         private void RealizarPago(Cliente cliente, decimal montoACobrar)
         {
             cliente.MontoMax -= total;
-            total = 0;
-            cuenta = 0;
+            
             for (int i = 0; i < cliente.ProductosComprados.Count; i++)
             {
                 if (cliente.ProductosComprados[i].Stock > 0)
                 {
                     rtb_cuenta.Text += cliente.ProductosComprados[i].CorteDeCarne.ToString() + " " + cliente.ProductosComprados[i].Stock + "\n";
+                    
                 }
             }
+            Factura facturaAux = new Factura(cliente.Nombre, userAux.Nombre, cliente.ProductosComprados, montoACobrar);
+            Negocio.ListFacturaAux.Add(facturaAux);
+            total = 0;
+            cuenta = 0;
         }
 
         private void AnularPedidos()
@@ -246,6 +248,22 @@ namespace Vista
             {
                 lb_total.Text = "total: " + total + " PESOS";
             }
+        }
+
+        private void btn_historial_Click(object sender, EventArgs e)
+        {
+            Frm_Historial historial = new Frm_Historial();
+            historial.Show();
+        }
+
+        private void btn_limpiarRtb_Click(object sender, EventArgs e)
+        {
+            rtb_cuenta.Clear();
+        }
+
+        private void Frm_Compra_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

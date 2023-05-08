@@ -14,11 +14,13 @@ namespace Carniceria
         static List<Cliente> clientes ;
         static List<Vendedor> vendedores;
         static Heladera heladera;
-
-         public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
-         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
-         static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
-         public static Heladera Heladera { get => heladera; set => heladera = value; }
+        static List<Factura> listFacturaAux = new List<Factura>();
+        
+        public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
+        public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
+        static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
+        public static Heladera Heladera { get => heladera; set => heladera = value; }
+        public static List<Factura> ListFacturaAux { get => listFacturaAux; set => listFacturaAux = value; }
 
         static Negocio()
         {

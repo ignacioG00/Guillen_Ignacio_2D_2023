@@ -22,7 +22,6 @@ namespace Vista
                 heladera.Show();
                 compras.BackColor = Color.Red;
                 compras.userAux = userAux;
-                compras.Show();
             }
             else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
             {

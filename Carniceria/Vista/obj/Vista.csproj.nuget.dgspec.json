@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj": {}
+    "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
+    "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
+        "projectUniqueName": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
         "projectName": "Carniceria",
-        "projectPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
+        "projectPath": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj",
         "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\obj\\",
+        "outputPath": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,18 +55,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj": {
+    "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj",
+        "projectUniqueName": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj",
         "projectName": "Vista",
-        "projectPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj",
+        "projectPath": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\Vista.csproj",
         "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\obj\\",
+        "outputPath": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Vista\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
-                "projectPath": "C:\\Users\\ignac\\OneDrive\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj"
+              "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj": {
+                "projectPath": "C:\\Escritorio\\UTN\\Guillen_Ignacio_2D_2023\\Carniceria\\Carniceria\\Carniceria.csproj"
               }
             }
           }
@@ -117,7 +117,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

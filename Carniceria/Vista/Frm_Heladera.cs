@@ -91,5 +91,9 @@ namespace Vista
             }
         }
 
+        private void Frm_Heladera_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
