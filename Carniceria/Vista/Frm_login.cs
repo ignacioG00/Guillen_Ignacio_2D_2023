@@ -22,12 +22,17 @@ namespace Vista
                 heladera.Show();
                 compras.BackColor = Color.RosyBrown;
                 compras.userAux = userAux;
+                compras.cb_listaClientes.Show();
+                compras.lb_venderA.Text = "Vender a:";
                 compras.Show();
             }
             else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
             {
                 compras.BackColor = Color.LightGreen;
                 compras.userAux = userAux;
+                compras.cb_listaClientes.Hide();
+                compras.lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
+                MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 compras.Show();
             }
 

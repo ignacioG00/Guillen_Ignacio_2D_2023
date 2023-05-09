@@ -58,6 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(222, 9);
             this.label1.Name = "label1";
@@ -360,8 +361,8 @@
         private Button button1;
         private Button btn_anularCompra;
         private Label lb_total;
-        private ComboBox cb_listaClientes;
-        private Label lb_venderA;
+        public ComboBox cb_listaClientes;
+        public Label lb_venderA;
         private Button btn_realizarPago;
         private Button btn_actualizarLista;
         private ComboBox cb_tipoPago;

@@ -14,7 +14,7 @@ namespace Carniceria
 
         public Producto(decimal precioPorKilo, decimal stock, string corteDeCarne)
         {
-            this.PrecioPorKilo = precioPorKilo;
+            this.precioPorKilo = precioPorKilo;
             this.stock = stock;
             this.corteDeCarne = corteDeCarne;
         }

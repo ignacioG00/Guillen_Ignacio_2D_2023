@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,14 +41,9 @@ namespace Vista
             {
                 cb_listaClientes.Items.Add(Negocio.Clientes[i].Dni);
             }
-            if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
-            {
-                cb_listaClientes.Hide();
-                lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
-                MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             CargarCarnes();
         }
+
         private void btn_anotarPedido_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("DESEA AGREGAR EL PRODUCTO?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -173,6 +169,7 @@ namespace Vista
             this.Hide();
         }
 
+
         /// <summary>
         /// Realiza el pago de la compra realizada por un cliente y descuenta su monto máximo disponible.
         /// </summary>
@@ -237,7 +234,7 @@ namespace Vista
                             {
                                 listAux[i].Stock += kilosLlevados;
                                 cuenta = Negocio.Heladera.ListaCarnes[i].PrecioPorKilo * Decimal.Parse(tb_kg.Text);
-                                Negocio.Heladera.QuitarProducto(Negocio.Heladera.ListaCarnes, item.ToString(), kilosLlevados);
+                                Negocio.Heladera.QuitarProducto(Negocio.Heladera.ListaCarnes, Negocio.Heladera.ListaCarnes[i].CorteDeCarne, kilosLlevados);
                                 total += cuenta;
                                 rtb_cuenta.AppendText(item.ToString() + " " + kilosLlevados + " kg" + "\n");
                             }

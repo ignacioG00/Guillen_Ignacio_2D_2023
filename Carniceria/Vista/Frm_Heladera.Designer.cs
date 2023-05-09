@@ -61,7 +61,7 @@
             this.lb_Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_Titulo.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_Titulo.ForeColor = System.Drawing.Color.Black;
-            this.lb_Titulo.Location = new System.Drawing.Point(28, 35);
+            this.lb_Titulo.Location = new System.Drawing.Point(216, 9);
             this.lb_Titulo.Name = "lb_Titulo";
             this.lb_Titulo.Size = new System.Drawing.Size(210, 48);
             this.lb_Titulo.TabIndex = 0;
@@ -207,7 +207,7 @@
             // btn_salir
             // 
             this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_salir.Location = new System.Drawing.Point(633, 12);
+            this.btn_salir.Location = new System.Drawing.Point(12, 12);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(89, 30);
             this.btn_salir.TabIndex = 33;

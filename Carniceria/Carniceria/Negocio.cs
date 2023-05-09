@@ -12,13 +12,13 @@ namespace Carniceria
     {
         static List<Producto> listaCarnes;
         static List<Cliente> clientes ;
-        static List<Vendedor> vendedores;
+        static List<Usuario> vendedores;
         static Heladera heladera;
-        static List<Factura> listFacturaAux = new List<Factura>();
+        static List<Factura> listFacturaAux = new();
         
         public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
-        static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
+        static List<Usuario> Vendedores { get => vendedores; set => vendedores = value; }
         public static Heladera Heladera { get => heladera; set => heladera = value; }
         public static List<Factura> ListFacturaAux { get => listFacturaAux; set => listFacturaAux = value; }
 
@@ -51,9 +51,9 @@ namespace Carniceria
         {
             clientes = new List<Cliente>()
             {
-                new Cliente(20000,null,"Ricardo",22222,"ric123"),
-                new Cliente(20000,null,"Ramon",21563, "ric123"),
-                new Cliente(20000,null,"Romualdo",21562, "ric123")
+                new Cliente(20000,new List<Producto>(),"Ricardo",22222,"ric123"),
+                new Cliente(20000,new List<Producto>(),"Ramon",21563, "ric123"),
+                new Cliente(20000,new List<Producto>(),"Romualdo",21562, "ric123")
                 //int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, string contraseña
             };
         }
@@ -62,11 +62,11 @@ namespace Carniceria
         /// </summary>
         static void InstanciarVendedores()
         {
-            vendedores = new List<Vendedor>()
+            vendedores = new List<Usuario>()
             {
-                new Vendedor("Lucas",21564,"1234"),
-                new Vendedor("Leo",21563, "1234"),
-                new Vendedor("Lautaro",21562, "1234")
+                new Usuario("Lucas",21564,"1234"),
+                new Usuario("Leo",21563, "1234"),
+                new Usuario("Lautaro",21562, "1234")
             };
         }
 
@@ -83,7 +83,7 @@ namespace Carniceria
                 if (item.Dni == idUser && item.ComprobarContra(password))
                     return item;
             }
-            foreach (Vendedor item in Vendedores)
+            foreach (Usuario item in Vendedores)
             {
                 if (item.Dni == idUser && item.ComprobarContra(password))
                     return item;
