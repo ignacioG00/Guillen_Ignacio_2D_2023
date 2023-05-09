@@ -13,7 +13,6 @@ namespace Vista
 {
     public partial class Frm_Heladera : Form
     {
-        //BindingSource dataGridView1;
         public Frm_Heladera()
         {
             InitializeComponent();
@@ -25,15 +24,24 @@ namespace Vista
             CargarCarnes();
         }
 
+        /// <summary>
+        /// Carga la lista de cortes de carne del objeto Negocio en un ComboBox.
+        /// </summary>
         public void CargarCarnes() 
         {
+            cb_listaCarnes.Items.Clear();   
             for (int i = 0; i < Negocio.ListaCarnes.Count; i++)
             {
                 cb_listaCarnes.Items.Add( Negocio.ListaCarnes[i].CorteDeCarne);
             }
         }
+
+        /// <summary>
+        /// Actualiza la lista de carnes en dgv y en el combobox.
+        /// </summary>
         public void ActualizarListas()
         {
+            CargarCarnes();
             dgv_listaCarnes.Rows.Clear();
             for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
             {
@@ -44,40 +52,10 @@ namespace Vista
                 dgv_listaCarnes.Rows[n].Cells[2].Value = Negocio.Heladera.ListaCarnes[i].PrecioPorKilo;
             }
         }
-
-        private void btn_bondiola_Click(object sender, EventArgs e)
-        {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, "Bondiola");
-            ActualizarListas();
-        }
-
-        private void btn_vacio_Click(object sender, EventArgs e)
-        {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, "Vacio");
-            ActualizarListas();
-        }
-
-        private void btn_tiraAsado_Click(object sender, EventArgs e)
-        {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, "Tira de Asado");
-            ActualizarListas();
-        }
-
-        private void btn_chorizo_Click(object sender, EventArgs e)
-        {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, "Choripan");
-            ActualizarListas();
-        }
-
-        private void btn_costillar_Click(object sender, EventArgs e)
-        {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, "Costillar");
-            ActualizarListas();
-        }
-
         private void btn_actualizarLista_Click(object sender, EventArgs e)
         {
             ActualizarListas();
+
         }
 
         private void btn_fijarPrecioxKilo_Click(object sender, EventArgs e)
@@ -90,10 +68,25 @@ namespace Vista
                 }
             }
         }
-
-        private void Frm_Heladera_FormClosing(object sender, FormClosingEventArgs e)
+        private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void btn_nuevoProducto_Click(object sender, EventArgs e)
+        {
+            if (Producto.CorteNoExistente(Negocio.Heladera.ListaCarnes, tb_nombreCorte.Text))
+            {
+                Negocio.Heladera.ListaCarnes.Add(new Producto(decimal.Parse(tb_precioxkilo.Text), 0, tb_nombreCorte.Text));
+                ActualizarListas();
+                CargarCarnes();
+            }
+        }
+
+        private void btn_reponerCarnes_Click(object sender, EventArgs e)
+        {
+            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, cb_listaCarnes.Text,decimal.Parse(tb_cantAReponer.Text));
+            ActualizarListas();
         }
     }
 }

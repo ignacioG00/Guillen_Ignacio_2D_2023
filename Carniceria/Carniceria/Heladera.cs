@@ -17,13 +17,13 @@ namespace Carniceria
             listaCarnes = carnes;
         }
 
-        public void ReponerProducto(List<Producto> carnes, string corteDeCarne)
+        public void ReponerProducto(List<Producto> carnes, string corteDeCarne,decimal cantidad)
         {
             foreach (Producto p in carnes)
             {
                 if (p.CorteDeCarne == corteDeCarne && p.Stock<50)
                 {
-                    p.Stock += 10;
+                    p.Stock += cantidad;
                     break; // Detener la iteración una vez que se ha encontrado el producto
                 }
             }

@@ -18,14 +18,15 @@ namespace Vista
             userAux = Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
             if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
             {
-                heladera.BackColor = Color.Red;
+                heladera.BackColor = Color.RosyBrown;
                 heladera.Show();
-                compras.BackColor = Color.Red;
+                compras.BackColor = Color.RosyBrown;
                 compras.userAux = userAux;
+                compras.Show();
             }
             else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
             {
-                compras.BackColor = Color.Green;
+                compras.BackColor = Color.LightGreen;
                 compras.userAux = userAux;
                 compras.Show();
             }
@@ -41,11 +42,6 @@ namespace Vista
         {
             tb_usuario.Text = "22222";
             tb_contra.Text = "ric123";
-        }
-
-        private void Frm_Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

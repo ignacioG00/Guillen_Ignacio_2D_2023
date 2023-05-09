@@ -51,16 +51,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btn_historial = new System.Windows.Forms.Button();
             this.btn_limpiarRtb = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(222, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 37);
+            this.label1.Size = new System.Drawing.Size(197, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "FACTURACION";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -68,7 +69,7 @@
             // lb_agregarCarnes
             // 
             this.lb_agregarCarnes.AutoSize = true;
-            this.lb_agregarCarnes.BackColor = System.Drawing.Color.Transparent;
+            this.lb_agregarCarnes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lb_agregarCarnes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.lb_agregarCarnes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lb_agregarCarnes.Location = new System.Drawing.Point(87, 57);
@@ -79,6 +80,7 @@
             // 
             // dgv_listaCarnes
             // 
+            this.dgv_listaCarnes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dgv_listaCarnes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_listaCarnes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.corteCarne,
@@ -114,6 +116,7 @@
             // 
             // tb_kg
             // 
+            this.tb_kg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.tb_kg.Location = new System.Drawing.Point(75, 202);
             this.tb_kg.Name = "tb_kg";
             this.tb_kg.Size = new System.Drawing.Size(131, 23);
@@ -121,6 +124,7 @@
             // 
             // rtb_cuenta
             // 
+            this.rtb_cuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.rtb_cuenta.Location = new System.Drawing.Point(496, 64);
             this.rtb_cuenta.Name = "rtb_cuenta";
             this.rtb_cuenta.ReadOnly = true;
@@ -131,6 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(75, 184);
             this.label2.Name = "label2";
@@ -140,13 +145,8 @@
             // 
             // clb_carnes
             // 
+            this.clb_carnes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.clb_carnes.FormattingEnabled = true;
-            this.clb_carnes.Items.AddRange(new object[] {
-            "Bondiola",
-            "Vacio",
-            "Tira de Asado",
-            "Chorizo",
-            "Costillar"});
             this.clb_carnes.Location = new System.Drawing.Point(87, 75);
             this.clb_carnes.Name = "clb_carnes";
             this.clb_carnes.Size = new System.Drawing.Size(120, 94);
@@ -155,6 +155,7 @@
             // lb_total
             // 
             this.lb_total.AutoSize = true;
+            this.lb_total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lb_total.Location = new System.Drawing.Point(496, 46);
             this.lb_total.Name = "lb_total";
             this.lb_total.Size = new System.Drawing.Size(41, 15);
@@ -163,26 +164,29 @@
             // 
             // btn_anotarPedido
             // 
+            this.btn_anotarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_anotarPedido.Location = new System.Drawing.Point(513, 370);
             this.btn_anotarPedido.Name = "btn_anotarPedido";
             this.btn_anotarPedido.Size = new System.Drawing.Size(120, 23);
             this.btn_anotarPedido.TabIndex = 20;
             this.btn_anotarPedido.Text = "AGREGAR PEDIDO";
-            this.btn_anotarPedido.UseVisualStyleBackColor = true;
+            this.btn_anotarPedido.UseVisualStyleBackColor = false;
             this.btn_anotarPedido.Click += new System.EventHandler(this.btn_anotarPedido_Click);
             // 
             // btn_anularCompra
             // 
+            this.btn_anularCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_anularCompra.Location = new System.Drawing.Point(387, 370);
             this.btn_anularCompra.Name = "btn_anularCompra";
             this.btn_anularCompra.Size = new System.Drawing.Size(120, 23);
             this.btn_anularCompra.TabIndex = 21;
             this.btn_anularCompra.Text = "ANULAR COMPRA";
-            this.btn_anularCompra.UseVisualStyleBackColor = true;
+            this.btn_anularCompra.UseVisualStyleBackColor = false;
             this.btn_anularCompra.Click += new System.EventHandler(this.btn_anularCompra_Click);
             // 
             // cb_listaClientes
             // 
+            this.cb_listaClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.cb_listaClientes.FormattingEnabled = true;
             this.cb_listaClientes.Location = new System.Drawing.Point(260, 75);
             this.cb_listaClientes.Name = "cb_listaClientes";
@@ -192,7 +196,7 @@
             // lb_venderA
             // 
             this.lb_venderA.AutoSize = true;
-            this.lb_venderA.BackColor = System.Drawing.Color.Transparent;
+            this.lb_venderA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lb_venderA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.lb_venderA.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lb_venderA.Location = new System.Drawing.Point(260, 57);
@@ -203,26 +207,29 @@
             // 
             // btn_realizarPago
             // 
+            this.btn_realizarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_realizarPago.Location = new System.Drawing.Point(639, 370);
             this.btn_realizarPago.Name = "btn_realizarPago";
             this.btn_realizarPago.Size = new System.Drawing.Size(120, 23);
             this.btn_realizarPago.TabIndex = 24;
             this.btn_realizarPago.Text = "REALIZAR PAGO";
-            this.btn_realizarPago.UseVisualStyleBackColor = true;
+            this.btn_realizarPago.UseVisualStyleBackColor = false;
             this.btn_realizarPago.Click += new System.EventHandler(this.btn_realizarPago_Click);
             // 
             // btn_actualizarLista
             // 
+            this.btn_actualizarLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_actualizarLista.Location = new System.Drawing.Point(12, 259);
             this.btn_actualizarLista.Name = "btn_actualizarLista";
             this.btn_actualizarLista.Size = new System.Drawing.Size(129, 23);
             this.btn_actualizarLista.TabIndex = 25;
             this.btn_actualizarLista.Text = "ACTUALIZAR STOCK";
-            this.btn_actualizarLista.UseVisualStyleBackColor = true;
+            this.btn_actualizarLista.UseVisualStyleBackColor = false;
             this.btn_actualizarLista.Click += new System.EventHandler(this.btn_actualizarLista_Click);
             // 
             // cb_tipoPago
             // 
+            this.cb_tipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.cb_tipoPago.FormattingEnabled = true;
             this.cb_tipoPago.Items.AddRange(new object[] {
             "Efectivo",
@@ -237,7 +244,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(260, 128);
@@ -248,6 +255,7 @@
             // 
             // tb_montoMax
             // 
+            this.tb_montoMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.tb_montoMax.Location = new System.Drawing.Point(260, 202);
             this.tb_montoMax.Name = "tb_montoMax";
             this.tb_montoMax.Size = new System.Drawing.Size(121, 23);
@@ -256,7 +264,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(260, 184);
@@ -267,29 +275,44 @@
             // 
             // btn_historial
             // 
+            this.btn_historial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_historial.Location = new System.Drawing.Point(461, 415);
             this.btn_historial.Name = "btn_historial";
             this.btn_historial.Size = new System.Drawing.Size(197, 23);
             this.btn_historial.TabIndex = 30;
             this.btn_historial.Text = "VER HISTORIAL DE FACTURAS";
-            this.btn_historial.UseVisualStyleBackColor = true;
+            this.btn_historial.UseVisualStyleBackColor = false;
             this.btn_historial.Click += new System.EventHandler(this.btn_historial_Click);
             // 
             // btn_limpiarRtb
             // 
+            this.btn_limpiarRtb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_limpiarRtb.Location = new System.Drawing.Point(598, 24);
             this.btn_limpiarRtb.Name = "btn_limpiarRtb";
             this.btn_limpiarRtb.Size = new System.Drawing.Size(100, 23);
             this.btn_limpiarRtb.TabIndex = 31;
             this.btn_limpiarRtb.Text = "Limpiar Panel";
-            this.btn_limpiarRtb.UseVisualStyleBackColor = true;
+            this.btn_limpiarRtb.UseVisualStyleBackColor = false;
             this.btn_limpiarRtb.Click += new System.EventHandler(this.btn_limpiarRtb_Click);
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_salir.Location = new System.Drawing.Point(12, 9);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(63, 23);
+            this.btn_salir.TabIndex = 32;
+            this.btn_salir.Text = "SALIR";
+            this.btn_salir.UseVisualStyleBackColor = false;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // Frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_limpiarRtb);
             this.Controls.Add(this.btn_historial);
             this.Controls.Add(this.label5);
@@ -313,6 +336,7 @@
             this.Name = "Frm_Compra";
             this.Text = "VENTAS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Compra_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Compra_FormClosed);
             this.Load += new System.EventHandler(this.Frm_Compra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listaCarnes)).EndInit();
             this.ResumeLayout(false);
@@ -346,5 +370,6 @@
         private Label label5;
         private Button btn_historial;
         private Button btn_limpiarRtb;
+        private Button btn_salir;
     }
 }

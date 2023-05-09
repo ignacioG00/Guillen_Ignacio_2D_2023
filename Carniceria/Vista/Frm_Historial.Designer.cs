@@ -39,6 +39,7 @@
             // 
             // dgv_histFacturas
             // 
+            this.dgv_histFacturas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dgv_histFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_histFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.venta,
@@ -77,6 +78,7 @@
             // lb_titulo
             // 
             this.lb_titulo.AutoSize = true;
+            this.lb_titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lb_titulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_titulo.Location = new System.Drawing.Point(251, 9);
             this.lb_titulo.Name = "lb_titulo";
@@ -88,6 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lb_titulo);
             this.Controls.Add(this.dgv_histFacturas);

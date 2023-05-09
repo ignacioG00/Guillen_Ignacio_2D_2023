@@ -23,5 +23,18 @@ namespace Carniceria
         public string CorteDeCarne { get { return corteDeCarne; } }
 
         public decimal PrecioPorKilo { get => precioPorKilo; set => precioPorKilo = value; }
+
+        public static bool CorteNoExistente(List<Producto> listCarnes,string nombreCorte)
+        {
+            int contador = 0;
+            for (int i = 0; i < Negocio.ListaCarnes.Count; i++)
+            {
+                if (nombreCorte == Negocio.ListaCarnes[i].CorteDeCarne)
+                {
+                    contador +=1;
+                }
+            }
+            return (contador == 0);
+        }
     }
 }

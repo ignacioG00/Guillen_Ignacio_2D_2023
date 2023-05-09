@@ -20,7 +20,6 @@ namespace Vista
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //dgv_histFacturas.DataSource = Negocio.ListFacturaAux;
             ActualizarListas();
         }
 

@@ -29,7 +29,10 @@ namespace Carniceria
             HardcodearProductos();
         }
 
-         static void HardcodearProductos() 
+        /// <summary>
+        /// Inicializa la lista de productos de carne y la heladera.
+        /// </summary>
+        static void HardcodearProductos() 
         {
            listaCarnes = new List<Producto>()
             {
@@ -41,7 +44,10 @@ namespace Carniceria
             };
             heladera = new Heladera(listaCarnes) ;
         }
-         static void InstanciarClientes()
+        /// <summary>
+        /// Inicializa la lista de clientes.
+        /// </summary>
+        static void InstanciarClientes()
         {
             clientes = new List<Cliente>()
             {
@@ -51,6 +57,9 @@ namespace Carniceria
                 //int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, string contraseña
             };
         }
+        /// <summary>
+        /// Inicializa la lista de vendedores.
+        /// </summary>
         static void InstanciarVendedores()
         {
             vendedores = new List<Vendedor>()
@@ -61,6 +70,12 @@ namespace Carniceria
             };
         }
 
+        /// <summary>
+        /// Función que busca un usuario en la lista de clientes y vendedores para loguearlo en el sistema.
+        /// </summary>
+        /// <param name="idUser">El número de identificación del usuario.</param>
+        /// <param name="password">El usuario logueado en caso de que se encuentre en la lista de clientes o vendedores, de lo contrario retorna null.</param>
+        /// <returns> El usuario logueado en caso de que se encuentre en la lista de clientes o vendedores, de lo contrario retorna null.</returns>
         public static Usuario LoguearUsuario(int idUser, string password)
         {
             foreach (Cliente item in Clientes)
@@ -75,7 +90,11 @@ namespace Carniceria
             }
             return null;
         }
-
+        /// <summary>
+        /// Función que determina si un usuario es un cliente o vendedor a partir de su número de identificación.
+        /// </summary>
+        /// <param name="idUser"> El número de identificación del usuario.</param>
+        /// <returns>"cliente" si el usuario se encuentra en la lista de clientes, "vendedor" si se encuentra en la lista de vendedores, de lo contrario retorna null.</returns>
         public static string SelectorUsuario(int idUser)
         {
             
