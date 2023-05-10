@@ -348,7 +348,7 @@
         #endregion
         private Label label1;
         private Label lb_agregarCarnes;
-        private DataGridView dgv_listaCarnes;
+        public DataGridView dgv_listaCarnes;
         private DataGridViewTextBoxColumn corteCarne;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn precio;
@@ -369,7 +369,7 @@
         private Label label4;
         private TextBox tb_montoMax;
         private Label label5;
-        private Button btn_historial;
+        public Button btn_historial;
         private Button btn_limpiarRtb;
         private Button btn_salir;
     }

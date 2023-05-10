@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carniceria
 {
-    public class Cliente : Usuario
+     public class Cliente : Usuario
     {
         decimal montoMax;
         List<Producto> productosComprados = new();
@@ -31,5 +31,11 @@ namespace Carniceria
             }
             return null;
         }
+
+        public override bool ComprobarContra(string datoIngresado)
+        {
+            return (!string.IsNullOrEmpty(datoIngresado) && datoIngresado.Trim() == Contraseña.Trim());
+        }
+
     }
 }

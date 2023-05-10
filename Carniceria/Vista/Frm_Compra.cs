@@ -88,6 +88,14 @@ namespace Vista
                 MessageBox.Show("COLOQUE MONTO MAXIMO PARA REALIZAR COMPRA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else
+            {
+                if (string.IsNullOrEmpty(cb_listaClientes.Text))
+                {
+                    MessageBox.Show("ERROR.ELIJA UN CLIENTE!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
 
             if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
             {
@@ -102,7 +110,8 @@ namespace Vista
 
             DialogResult resultado = MessageBox.Show("DESEA REALIZAR EL PAGO? \n" + rtb_cuenta.Text +
                 "\nSi eligio credito tendra un 5% de recargo.\n" +
-                "Total con credito: $" + totalConRecargo +
+                "Total con credito: $\n" + totalConRecargo +
+                "Total sin credito: $" + total +
                 "\n Saldo de " + clienteAux.Nombre +
                 ": $" + clienteAux.MontoMax
                 , "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -223,7 +232,16 @@ namespace Vista
         {
             if (!string.IsNullOrEmpty(tb_kg.Text))
             {
-                kilosLlevados += Decimal.Parse(tb_kg.Text);
+                if (decimal.TryParse(tb_kg.Text, out decimal result))
+                {
+                    kilosLlevados += result;
+                }
+                else
+                {
+                    MessageBox.Show("ERROR. ELIJE UNA CANTIDAD VALIDA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                
                 foreach (var item in clb_carnes.CheckedItems)
                 {
                     for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
@@ -249,9 +267,6 @@ namespace Vista
                 }
                 kilosLlevados = 0;
                 lb_total.Text = "total: " + total + " PESOS";
-                rtb_cuenta.AppendText("----------------------------\n");
-                rtb_cuenta.AppendText("Esta gastando: " + total + "$" + "\n");
-                rtb_cuenta.AppendText("----------------------------\n");
                 ActualizarListas();
             }
             else

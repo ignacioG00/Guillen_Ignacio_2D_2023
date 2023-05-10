@@ -12,13 +12,13 @@ namespace Carniceria
     {
         static List<Producto> listaCarnes;
         static List<Cliente> clientes ;
-        static List<Usuario> vendedores;
+        static List<Vendedor> vendedores;
         static Heladera heladera;
         static List<Factura> listFacturaAux = new();
         
         public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
-        static List<Usuario> Vendedores { get => vendedores; set => vendedores = value; }
+        static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
         public static Heladera Heladera { get => heladera; set => heladera = value; }
         public static List<Factura> ListFacturaAux { get => listFacturaAux; set => listFacturaAux = value; }
 
@@ -62,11 +62,11 @@ namespace Carniceria
         /// </summary>
         static void InstanciarVendedores()
         {
-            vendedores = new List<Usuario>()
+            vendedores = new List<Vendedor>()
             {
-                new Usuario("Lucas",21564,"1234"),
-                new Usuario("Leo",21563, "1234"),
-                new Usuario("Lautaro",21562, "1234")
+                new Vendedor("Lucas",21564,"1234"),
+                new Vendedor("Leo",21563, "1234"),
+                new Vendedor("Lautaro",21562, "1234")
             };
         }
 
@@ -78,12 +78,12 @@ namespace Carniceria
         /// <returns> El usuario logueado en caso de que se encuentre en la lista de clientes o vendedores, de lo contrario retorna null.</returns>
         public static Usuario LoguearUsuario(int idUser, string password)
         {
-            foreach (Cliente item in Clientes)
+            foreach (Cliente cli in Clientes)
             {
-                if (item.Dni == idUser && item.ComprobarContra(password))
-                    return item;
+                if (cli.Dni == idUser && cli.ComprobarContra(password))
+                    return cli;
             }
-            foreach (Usuario item in Vendedores)
+            foreach (Vendedor item in Vendedores)
             {
                 if (item.Dni == idUser && item.ComprobarContra(password))
                     return item;

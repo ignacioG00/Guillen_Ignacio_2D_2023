@@ -1,6 +1,6 @@
 ﻿namespace Carniceria
 {
-    public class Usuario
+    public abstract class Usuario
     {
         string nombre;
         int dni;
@@ -29,9 +29,9 @@
             set { contraseña = value; }
         }
 
-        public bool ComprobarContra(string datoIngresado)
+        public virtual bool ComprobarContra(string datoIngresado)
         {
-            return (!string.IsNullOrEmpty(datoIngresado) && datoIngresado.Trim() == contraseña.Trim());
+            return (!string.IsNullOrEmpty(datoIngresado));
         }
     }
 }

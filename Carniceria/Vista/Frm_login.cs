@@ -15,7 +15,25 @@ namespace Vista
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            userAux = Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
+            if (!string.IsNullOrEmpty(tb_usuario.Text) && !string.IsNullOrEmpty(tb_contra.Text))
+            {
+                if (int.TryParse(tb_usuario.Text, out int result))
+                {
+                    userAux = Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
+                }
+                else
+                {
+                    MessageBox.Show("ERROR. USUARIO INCORRECTO!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    userAux = new Vendedor("",0,"");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR. FALTA USUARIO O CONTRASEÑA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                userAux = new Vendedor("", 0, "");
+                return;
+            }
             if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
             {
                 heladera.BackColor = Color.RosyBrown;
@@ -23,6 +41,7 @@ namespace Vista
                 compras.BackColor = Color.RosyBrown;
                 compras.userAux = userAux;
                 compras.cb_listaClientes.Show();
+                compras.btn_historial.Show();
                 compras.lb_venderA.Text = "Vender a:";
                 compras.Show();
             }
@@ -31,6 +50,7 @@ namespace Vista
                 compras.BackColor = Color.LightGreen;
                 compras.userAux = userAux;
                 compras.cb_listaClientes.Hide();
+                compras.btn_historial.Hide();
                 compras.lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
                 MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 compras.Show();

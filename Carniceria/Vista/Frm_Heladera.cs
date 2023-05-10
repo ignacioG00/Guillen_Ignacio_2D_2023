@@ -55,7 +55,6 @@ namespace Vista
         private void btn_actualizarLista_Click(object sender, EventArgs e)
         {
             ActualizarListas();
-
         }
 
         private void btn_fijarPrecioxKilo_Click(object sender, EventArgs e)
@@ -64,7 +63,14 @@ namespace Vista
             {
                 if (cb_listaCarnes.Text == Negocio.Heladera.ListaCarnes[i].CorteDeCarne)
                 {
-                    Negocio.Heladera.ListaCarnes[i].PrecioPorKilo = decimal.Parse(tb_fijarPrecio.Text);
+                    if (decimal.TryParse(tb_fijarPrecio.Text, out decimal result))
+                    {
+                        Negocio.Heladera.ListaCarnes[i].PrecioPorKilo = result;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un valor numérico válido");
+                    }
                 }
             }
         }
@@ -77,16 +83,30 @@ namespace Vista
         {
             if (Producto.CorteNoExistente(Negocio.Heladera.ListaCarnes, tb_nombreCorte.Text))
             {
-                Negocio.Heladera.ListaCarnes.Add(new Producto(decimal.Parse(tb_precioxkilo.Text), 0, tb_nombreCorte.Text));
-                ActualizarListas();
-                CargarCarnes();
+                if (decimal.TryParse(tb_precioxkilo.Text, out decimal result))
+                {
+                    Negocio.Heladera.ListaCarnes.Add(new Producto(result, 0, tb_nombreCorte.Text));
+                    ActualizarListas();
+                    CargarCarnes();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un valor numérico válido");
+                }
             }
         }
 
         private void btn_reponerCarnes_Click(object sender, EventArgs e)
         {
-            Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, cb_listaCarnes.Text,decimal.Parse(tb_cantAReponer.Text));
-            ActualizarListas();
+            if (decimal.TryParse(tb_cantAReponer.Text, out decimal result))
+            {
+                Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, cb_listaCarnes.Text, result);
+                ActualizarListas();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un valor numérico válido");
+            }
         }
     }
 }
