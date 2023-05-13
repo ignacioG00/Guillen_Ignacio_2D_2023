@@ -3,13 +3,13 @@
     public abstract class Usuario
     {
         string nombre;
-        int dni;
+        string mail;
         string contraseña;
 
-        public Usuario(string nombre, int dni ,string contraseña)
+        public Usuario(string nombre, string mail, string contraseña)
         {
             this.nombre = nombre;
-            this.dni = dni;
+            this.mail = mail;
             this.contraseña = contraseña;
         }
         public string Nombre
@@ -17,10 +17,10 @@
             get { return nombre; }
             set { nombre = value; }
         }
-        public int Dni 
+        public string Mail 
         {
-            get { return dni; }
-            set { dni = value; }    
+            get { return mail; }
+            set { mail = value; }    
         }
 
         public string Contraseña 

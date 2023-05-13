@@ -15,7 +15,14 @@ namespace Carniceria
         static List<Vendedor> vendedores;
         static Heladera heladera;
         static List<Factura> listFacturaAux = new();
-        
+
+        public enum TipoPago
+        {
+            efectivo,
+            debito,
+            credito
+        }
+
         public static List<Producto> ListaCarnes { get => listaCarnes; set => listaCarnes = value; }
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
         static List<Vendedor> Vendedores { get => vendedores; set => vendedores = value; }
@@ -51,10 +58,9 @@ namespace Carniceria
         {
             clientes = new List<Cliente>()
             {
-                new Cliente(20000,new List<Producto>(),"Ricardo",22222,"ric123"),
-                new Cliente(20000,new List<Producto>(),"Ramon",21563, "ric123"),
-                new Cliente(20000,new List<Producto>(),"Romualdo",21562, "ric123")
-                //int montoMax, List<Producto> productosComprados,string nombre, int dni, string user, string contraseña
+                new Cliente(20000,new List<Producto>(),"Ricardo","richard@gmail.com","ric123"),
+                new Cliente(20000,new List<Producto>(),"Ramon","ramon@gmail.com", "ric123"),
+                new Cliente(20000,new List<Producto>(),"Romualdo","romualdo@gmail.com", "ric123")
             };
         }
         /// <summary>
@@ -64,9 +70,9 @@ namespace Carniceria
         {
             vendedores = new List<Vendedor>()
             {
-                new Vendedor("Lucas",21564,"1234"),
-                new Vendedor("Leo",21563, "1234"),
-                new Vendedor("Lautaro",21562, "1234")
+                new Vendedor("Lucas","lucas@gmail.com","1234"),
+                new Vendedor("Leo","leo@gmail.com", "1234"),
+                new Vendedor("Lautaro","lautaro@gmail.com", "1234")
             };
         }
 
@@ -76,17 +82,17 @@ namespace Carniceria
         /// <param name="idUser">El número de identificación del usuario.</param>
         /// <param name="password">El usuario logueado en caso de que se encuentre en la lista de clientes o vendedores, de lo contrario retorna null.</param>
         /// <returns> El usuario logueado en caso de que se encuentre en la lista de clientes o vendedores, de lo contrario retorna null.</returns>
-        public static Usuario LoguearUsuario(int idUser, string password)
+        public static Usuario LoguearUsuario(string mail, string password)
         {
             foreach (Cliente cli in Clientes)
             {
-                if (cli.Dni == idUser && cli.ComprobarContra(password))
+                if (cli.Mail == mail && cli.ComprobarContra(password))
                     return cli;
             }
-            foreach (Vendedor item in Vendedores)
+            foreach (Vendedor vend in Vendedores)
             {
-                if (item.Dni == idUser && item.ComprobarContra(password))
-                    return item;
+                if (vend.Mail == mail && vend.ComprobarContra(password))
+                    return vend;
             }
             return null;
         }
@@ -95,25 +101,25 @@ namespace Carniceria
         /// </summary>
         /// <param name="idUser"> El número de identificación del usuario.</param>
         /// <returns>"cliente" si el usuario se encuentra en la lista de clientes, "vendedor" si se encuentra en la lista de vendedores, de lo contrario retorna null.</returns>
-        public static string SelectorUsuario(int idUser)
+        public static string SelectorUsuario(string mailUser)
         {
             
             foreach (var cli in clientes)
             {
                 
-                if (idUser == cli.Dni)
+                if (mailUser == cli.Mail)
                 {
                     return "cliente";
                 }
             }
             foreach (var vend in vendedores)
             {
-                if (idUser == vend.Dni)
+                if (mailUser == vend.Mail)
                 {
                     return "vendedor";
                 }
             }
-            return null;
+            return "error";
         }
 
     }

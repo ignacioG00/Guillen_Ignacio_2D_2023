@@ -1,4 +1,5 @@
 using Carniceria;
+using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -15,58 +16,66 @@ namespace Vista
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tb_usuario.Text) && !string.IsNullOrEmpty(tb_contra.Text))
+            ValidarIngreso(tb_usuario.Text, tb_contra.Text);
+            if (userAux is not null)
             {
-                if (int.TryParse(tb_usuario.Text, out int result))
+                if (Negocio.SelectorUsuario(userAux.Mail) == "vendedor")
                 {
-                    userAux = Negocio.LoguearUsuario(int.Parse(tb_usuario.Text), tb_contra.Text);
+                    heladera.BackColor = Color.RosyBrown;
+                    heladera.Show();
+                    compras.BackColor = Color.RosyBrown;
+                    compras.userAux = userAux;
+                    compras.cb_listaClientes.Show();
+                    compras.btn_historial.Show();
+                    compras.lb_venderA.Text = "Vender a:";
+                    compras.Show();
                 }
-                else
+                else if (Negocio.SelectorUsuario(userAux.Mail) == "cliente")
                 {
-                    MessageBox.Show("ERROR. USUARIO INCORRECTO!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    userAux = new Vendedor("",0,"");
-                    return;
+                    compras.BackColor = Color.LightGreen;
+                    compras.userAux = userAux;
+                    compras.cb_listaClientes.Hide();
+                    compras.btn_historial.Hide();
+                    compras.lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
+                    MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    compras.Show();
                 }
             }
-            else
-            {
-                MessageBox.Show("ERROR. FALTA USUARIO O CONTRASEÑA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                userAux = new Vendedor("", 0, "");
-                return;
-            }
-            if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
-            {
-                heladera.BackColor = Color.RosyBrown;
-                heladera.Show();
-                compras.BackColor = Color.RosyBrown;
-                compras.userAux = userAux;
-                compras.cb_listaClientes.Show();
-                compras.btn_historial.Show();
-                compras.lb_venderA.Text = "Vender a:";
-                compras.Show();
-            }
-            else if (Negocio.SelectorUsuario(userAux.Dni) == "cliente")
-            {
-                compras.BackColor = Color.LightGreen;
-                compras.userAux = userAux;
-                compras.cb_listaClientes.Hide();
-                compras.btn_historial.Hide();
-                compras.lb_venderA.Text = "Cliente Actual: " + userAux.Nombre;
-                MessageBox.Show("INGRESE MONTO A GASTAR PARA PODER REALIZAR LA COMPRA.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                compras.Show();
-            }
-
         }
         private void btn_autoVendedor_Click(object sender, EventArgs e)
         {
-            tb_usuario.Text = "21564";
+            tb_usuario.Text = "lucas@gmail.com";
             tb_contra.Text = "1234";
         }
 
         private void btn_autoCliente_Click(object sender, EventArgs e)
         {
-            tb_usuario.Text = "22222";
+            tb_usuario.Text = "romualdo@gmail.com";
             tb_contra.Text = "ric123";
+        }
+
+        public void ValidarIngreso(string email, string contra)
+        {
+            if (String.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("ERROR. ESCRIBA EL USUARIO!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                userAux = null;
+            }
+            else if (String.IsNullOrEmpty(contra))
+            {
+                MessageBox.Show("ERROR. ESCRIBA CONTRASEÑA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                userAux = null;
+
+            }
+            else if (Negocio.LoguearUsuario(email, contra) is null)
+            {
+                MessageBox.Show("ERROR. EL USUARIO NO EXISTE!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                userAux = null;
+            }
+            else
+            {
+                userAux = Negocio.LoguearUsuario(email, contra);
+            }
         }
     }
 }

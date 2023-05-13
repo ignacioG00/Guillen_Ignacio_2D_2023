@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Carniceria.Negocio;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -34,12 +35,13 @@ namespace Vista
         {
             InitializeComponent();
             ActualizarListas();
+            cb_tipoPago.DataSource = Enum.GetValues(typeof(Negocio.TipoPago));
         }
         private void Frm_Compra_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < Negocio.Clientes.Count; i++)
             {
-                cb_listaClientes.Items.Add(Negocio.Clientes[i].Dni);
+                cb_listaClientes.Items.Add(Negocio.Clientes[i].Mail);
             }
             CargarCarnes();
         }
@@ -82,28 +84,25 @@ namespace Vista
         private void btn_realizarPago_Click(object sender, EventArgs e)
         {
             Cliente clienteAux;
-
-            if (string.IsNullOrEmpty(tb_montoMax.Text))
+            
+            if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.TryParse(tb_montoMax.Text, out decimal result) || result<1)
             {
-                MessageBox.Show("COLOQUE MONTO MAXIMO PARA REALIZAR COMPRA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("COLOQUE MONTO VALIDO PARA REALIZAR COMPRA (debe ser un numero mayor a 0)!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
+
+            if (Negocio.SelectorUsuario(userAux.Mail) == "vendedor")
             {
                 if (string.IsNullOrEmpty(cb_listaClientes.Text))
                 {
                     MessageBox.Show("ERROR.ELIJA UN CLIENTE!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-            }
-
-            if (Negocio.SelectorUsuario(userAux.Dni) == "vendedor")
-            {
-                clienteAux = Cliente.RetornarCliente(int.Parse(cb_listaClientes.Text), Negocio.Clientes);
+                clienteAux = Cliente.RetornarCliente(cb_listaClientes.Text, Negocio.Clientes);
             }
             else
             {
-                clienteAux = Cliente.RetornarCliente(userAux.Dni, Negocio.Clientes);
+                clienteAux = Cliente.RetornarCliente(userAux.Mail, Negocio.Clientes);
             }
             clienteAux.MontoMax = decimal.Parse(tb_montoMax.Text);
             decimal totalConRecargo = total * (decimal)1.05;
@@ -147,7 +146,7 @@ namespace Vista
         }
         private void cb_tipoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_tipoPago.Text == "Credito")
+            if (cb_tipoPago.Text == "credito")
             {
                 lb_total.Text = "total: " + (total * (decimal)1.05) + " PESOS";
             }

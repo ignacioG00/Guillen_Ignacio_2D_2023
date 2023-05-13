@@ -8,7 +8,7 @@ namespace Carniceria
 {
     public class Vendedor : Usuario
     {
-        public Vendedor(string nombre, int dni, string contraseña) : base(nombre, dni, contraseña)
+        public Vendedor(string nombre, string mail, string contraseña) : base(nombre, mail, contraseña)
         {
         }
         public override bool ComprobarContra(string datoIngresado)

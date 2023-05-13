@@ -232,10 +232,6 @@
             // 
             this.cb_tipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.cb_tipoPago.FormattingEnabled = true;
-            this.cb_tipoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Credito",
-            "Debito"});
             this.cb_tipoPago.Location = new System.Drawing.Point(260, 146);
             this.cb_tipoPago.Name = "cb_tipoPago";
             this.cb_tipoPago.Size = new System.Drawing.Size(121, 23);

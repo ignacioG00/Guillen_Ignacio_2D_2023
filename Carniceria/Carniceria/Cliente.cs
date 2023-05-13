@@ -11,7 +11,7 @@ namespace Carniceria
         decimal montoMax;
         List<Producto> productosComprados = new();
 
-        public Cliente(int montoMax, List<Producto> productosComprados, string nombre, int dni, string contraseña) : base(nombre, dni, contraseña)
+        public Cliente(int montoMax, List<Producto> productosComprados, string nombre, string mail, string contraseña) : base(nombre, mail, contraseña)
         {
             this.MontoMax = montoMax;
             this.ProductosComprados = productosComprados;
@@ -20,11 +20,11 @@ namespace Carniceria
         public decimal MontoMax { get => montoMax; set => montoMax = value; }
         public List<Producto> ProductosComprados { get => productosComprados; set => productosComprados = value; }
 
-        public static Cliente RetornarCliente(int dni, List<Cliente> listaClientes) 
+        public static Cliente RetornarCliente(string mail, List<Cliente> listaClientes) 
         {
             for (int i = 0; i < listaClientes.Count; i++)
             {
-                if (dni == listaClientes[i].Dni)
+                if (mail == listaClientes[i].Mail)
                 {
                     return listaClientes[i];
                 }
