@@ -108,5 +108,44 @@ namespace Vista
                 MessageBox.Show("Ingrese un valor numérico válido");
             }
         }
+
+        private void tb_precioxkilo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo permitir un punto decimal
+            if ((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_cantAReponer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo permitir un punto decimal
+            if ((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_fijarPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo permitir un punto decimal
+            if ((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -128,10 +128,11 @@
             // tb_fijarPrecio
             // 
             this.tb_fijarPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tb_fijarPrecio.Location = new System.Drawing.Point(238, 257);
+            this.tb_fijarPrecio.Location = new System.Drawing.Point(471, 335);
             this.tb_fijarPrecio.Name = "tb_fijarPrecio";
-            this.tb_fijarPrecio.Size = new System.Drawing.Size(122, 23);
+            this.tb_fijarPrecio.Size = new System.Drawing.Size(160, 23);
             this.tb_fijarPrecio.TabIndex = 24;
+            this.tb_fijarPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_fijarPrecio_KeyPress);
             // 
             // cb_listaCarnes
             // 
@@ -218,10 +219,11 @@
             // tb_precioxkilo
             // 
             this.tb_precioxkilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tb_precioxkilo.Location = new System.Drawing.Point(471, 333);
+            this.tb_precioxkilo.Location = new System.Drawing.Point(219, 257);
             this.tb_precioxkilo.Name = "tb_precioxkilo";
             this.tb_precioxkilo.Size = new System.Drawing.Size(160, 23);
             this.tb_precioxkilo.TabIndex = 34;
+            this.tb_precioxkilo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_precioxkilo_KeyPress);
             // 
             // tb_nombreCorte
             // 
@@ -287,6 +289,7 @@
             this.tb_cantAReponer.Name = "tb_cantAReponer";
             this.tb_cantAReponer.Size = new System.Drawing.Size(122, 23);
             this.tb_cantAReponer.TabIndex = 41;
+            this.tb_cantAReponer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_cantAReponer_KeyPress);
             // 
             // lb_cantAReponer
             // 

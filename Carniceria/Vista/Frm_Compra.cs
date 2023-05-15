@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Carniceria.Negocio;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Vista
 {
@@ -35,6 +36,7 @@ namespace Vista
         {
             InitializeComponent();
             ActualizarListas();
+            LimpiarVentana();
             cb_tipoPago.DataSource = Enum.GetValues(typeof(Negocio.TipoPago));
         }
         private void Frm_Compra_Load(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace Vista
         {
             Cliente clienteAux;
             
-            if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.TryParse(tb_montoMax.Text, out decimal result) || result<1)
+            if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.Parse(tb_montoMax.Text)<0)
             {
                 MessageBox.Show("COLOQUE MONTO VALIDO PARA REALIZAR COMPRA (debe ser un numero mayor a 0)!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -109,8 +111,8 @@ namespace Vista
 
             DialogResult resultado = MessageBox.Show("DESEA REALIZAR EL PAGO? \n" + rtb_cuenta.Text +
                 "\nSi eligio credito tendra un 5% de recargo.\n" +
-                "Total con credito: $\n" + totalConRecargo +
-                "Total sin credito: $" + total +
+                "Total c/credito: $" + totalConRecargo + " / " +
+                "Total s/credito: $" + total +
                 "\n Saldo de " + clienteAux.Nombre +
                 ": $" + clienteAux.MontoMax
                 , "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -118,10 +120,22 @@ namespace Vista
             if (resultado == DialogResult.Yes && total > 0 && clienteAux.MontoMax > total)
             {
                 clienteAux.ProductosComprados = listAux;
+                //foreach (var item in clienteAux.ProductosComprados)
+                //{
+                //    var productoEnLista = listAux.FirstOrDefault(p => p.CorteDeCarne == item.CorteDeCarne);
+                //    if (productoEnLista != null)
+                //    {
+                //        // Actualizar el stock del producto comprado
+                //        item.Stock += productoEnLista.Stock;
+                //        // Actualizar el stock del producto en la lista auxiliar
+                //        productoEnLista.Stock = 0;
+                //    }
+                //}
                 if (cb_tipoPago.Text == "Credito")
                 {
                     clienteAux.MontoMax -= totalConRecargo;
                     RealizarPago(clienteAux, totalConRecargo);
+                    
                 }
                 else
                 {
@@ -177,6 +191,13 @@ namespace Vista
             this.Hide();
         }
 
+        private void VaciarListaAux() 
+        {
+            for (int i = 0; i < listAux.Count; i++)
+            {
+                listAux[i].Stock = 0;
+            }
+        }
 
         /// <summary>
         /// Realiza el pago de la compra realizada por un cliente y descuenta su monto máximo disponible.
@@ -186,17 +207,18 @@ namespace Vista
         private void RealizarPago(Cliente cliente, decimal montoACobrar)
         {
             cliente.MontoMax -= total;
-
+            string factura= "* FACTURA DE LA COMPRA * \n"; 
             for (int i = 0; i < cliente.ProductosComprados.Count; i++)
             {
                 if (cliente.ProductosComprados[i].Stock > 0)
                 {
-                    rtb_cuenta.AppendText(cliente.ProductosComprados[i].CorteDeCarne.ToString() + " " + cliente.ProductosComprados[i].Stock + "\n");
+                    factura += cliente.ProductosComprados[i].CorteDeCarne.ToString() + " " + cliente.ProductosComprados[i].Stock + "\n";
                 }
             }
-
+            MessageBox.Show(factura, "COMPRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Factura facturaAux = new Factura(cliente.Nombre, userAux.Nombre, cliente.ProductosComprados, montoACobrar);
             Negocio.ListFacturaAux.Add(facturaAux);
+            LimpiarVentana();
             total = 0;
             cuenta = 0;
         }
@@ -305,6 +327,39 @@ namespace Vista
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void tb_montoMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo permitir un punto decimal
+            if ((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_kg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo permitir un punto decimal
+            if ((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        private void LimpiarVentana() 
+        {
+            tb_kg.Text = "";
+            tb_montoMax.Text = "";
+            rtb_cuenta.Text = "";
+            lb_total.Text = "Total: ";
         }
     }
 }

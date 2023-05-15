@@ -122,6 +122,7 @@
             this.tb_kg.Name = "tb_kg";
             this.tb_kg.Size = new System.Drawing.Size(131, 23);
             this.tb_kg.TabIndex = 15;
+            this.tb_kg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_kg_KeyPress);
             // 
             // rtb_cuenta
             // 
@@ -257,6 +258,7 @@
             this.tb_montoMax.Name = "tb_montoMax";
             this.tb_montoMax.Size = new System.Drawing.Size(121, 23);
             this.tb_montoMax.TabIndex = 28;
+            this.tb_montoMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_montoMax_KeyPress);
             // 
             // label5
             // 
