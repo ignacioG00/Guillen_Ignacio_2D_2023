@@ -1,4 +1,5 @@
 ﻿using Carniceria;
+using System.Media;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace Vista
@@ -9,7 +10,7 @@ namespace Vista
         decimal total = 0;
         decimal kilosLlevados = 0;
         public Usuario userAux;
-
+        private SoundPlayer sonidoCompra = new SoundPlayer();
 
         static List<Producto> listAux = new List<Producto>()
             {
@@ -56,10 +57,14 @@ namespace Vista
 
             if (resultado == DialogResult.Yes)
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+                sonidoCompra.Play();
                 HacerPedido();
             }
             else
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoCompra.Play();
                 MessageBox.Show("PEDIDO NO CARGADO", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -74,6 +79,8 @@ namespace Vista
             }
             else
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoCompra.Play();
                 MessageBox.Show("ERROR. NO HAY PEDIDOS CREADOS", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
@@ -81,8 +88,9 @@ namespace Vista
 
         private void btn_actualizarLista_Click(object sender, EventArgs e)
         {
+            sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+            sonidoCompra.Play();
             ActualizarListas();
-
         }
 
         private void btn_realizarPago_Click(object sender, EventArgs e)
@@ -91,6 +99,8 @@ namespace Vista
 
             if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.Parse(tb_montoMax.Text) < 0)
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoCompra.Play();
                 MessageBox.Show("COLOQUE MONTO VALIDO PARA REALIZAR COMPRA (debe ser un numero mayor a 0)!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -99,6 +109,8 @@ namespace Vista
             {
                 if (string.IsNullOrEmpty(cb_listaClientes.Text))
                 {
+                    sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCompra.Play();
                     MessageBox.Show("ERROR.ELIJA UN CLIENTE!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -121,6 +133,8 @@ namespace Vista
 
             if (resultado == DialogResult.Yes && total > 0 && clienteAux.MontoMax > total)
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\caja.wav";
+                sonidoCompra.Play();
                 clienteAux.ProductosComprados = RetornarCopiaListAux(listAux);
                 if (cb_tipoPago.Text == "Credito")
                 {
@@ -137,14 +151,20 @@ namespace Vista
             {
                 if (tb_kg.Text == "" || int.Parse(tb_kg.Text) < 1)
                 {
+                    sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCompra.Play();
                     MessageBox.Show("ERROR NO COLOCO NINGUNA CANTIDAD EN KILOS!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else if (clienteAux.MontoMax < total)
                 {
+                    sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCompra.Play();
                     MessageBox.Show("EL MONTO MAXIMO ES MENOR AL DE LA COMPRA, AGREGAR MONTO!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
+                    sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCompra.Play();
                     MessageBox.Show("VENTA NO REALIZADA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     clienteAux.ProductosComprados.Clear();
                 }
@@ -165,12 +185,16 @@ namespace Vista
 
         private void btn_historial_Click(object sender, EventArgs e)
         {
+            sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+            sonidoCompra.Play();
             Frm_Historial historial = new Frm_Historial();
             historial.Show();
         }
 
         private void btn_limpiarRtb_Click(object sender, EventArgs e)
         {
+            sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+            sonidoCompra.Play();
             rtb_cuenta.Clear();
         }
 
@@ -254,6 +278,8 @@ namespace Vista
                 }
                 else
                 {
+                    sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCompra.Play();
                     MessageBox.Show("ERROR. ELIJE UNA CANTIDAD VALIDA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -274,6 +300,8 @@ namespace Vista
                             }
                             else
                             {
+                                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                                sonidoCompra.Play();
                                 MessageBox.Show($"ERROR. NO HAY STOCK DE: {item}!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             }
@@ -287,6 +315,8 @@ namespace Vista
             }
             else
             {
+                sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoCompra.Play();
                 MessageBox.Show("ERROR NO COLOCO NINGUNA CANTIDAD EN KILOS!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -296,6 +326,8 @@ namespace Vista
         /// </summary>
         public void ActualizarListas()
         {
+            sonidoCompra.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+            sonidoCompra.Play();
             CargarCarnes();
             dgv_listaCarnes.Rows.Clear();
             for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)

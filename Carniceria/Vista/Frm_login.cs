@@ -1,4 +1,6 @@
 using Carniceria;
+using System.Media;
+using System.Numerics;
 
 namespace Vista
 {
@@ -7,6 +9,7 @@ namespace Vista
         Frm_Heladera heladera = new Frm_Heladera();
         Frm_Compra compras = new Frm_Compra();
         Usuario userAux;
+        private SoundPlayer sonidoLogin= new SoundPlayer();
         public Frm_Login()
         {
             InitializeComponent();
@@ -17,6 +20,8 @@ namespace Vista
             ValidarIngreso(tb_usuario.Text, tb_contra.Text);
             if (userAux is not null)
             {
+                sonidoLogin.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+                sonidoLogin.Play();
                 if (Negocio.SelectorUsuario(userAux.Mail) == "vendedor")
                 {
                     heladera.BackColor = Color.RosyBrown;
@@ -56,22 +61,30 @@ namespace Vista
         {
             if (String.IsNullOrEmpty(email))
             {
+                sonidoLogin.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoLogin.Play();
                 MessageBox.Show("ERROR. ESCRIBA EL USUARIO!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 userAux = null;
             }
             else if (String.IsNullOrEmpty(contra))
             {
+                sonidoLogin.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoLogin.Play();
                 MessageBox.Show("ERROR. ESCRIBA CONTRASEÑA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 userAux = null;
 
             }
             else if (Negocio.LoguearUsuario(email, contra) is null)
             {
+                sonidoLogin.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoLogin.Play();
                 MessageBox.Show("ERROR. EL USUARIO NO EXISTE!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 userAux = null;
             }
             else
             {
+                sonidoLogin.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoLogin.Play();
                 userAux = Negocio.LoguearUsuario(email, contra);
             }
         }

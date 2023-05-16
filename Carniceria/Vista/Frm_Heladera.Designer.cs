@@ -124,11 +124,12 @@
             this.btn_fijarPrecioxKilo.TabIndex = 23;
             this.btn_fijarPrecioxKilo.Text = "FIJAR PRECIO POR KILO";
             this.btn_fijarPrecioxKilo.UseVisualStyleBackColor = false;
+            this.btn_fijarPrecioxKilo.Click += new System.EventHandler(this.btn_fijarPrecioxKilo_Click);
             // 
             // tb_fijarPrecio
             // 
             this.tb_fijarPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tb_fijarPrecio.Location = new System.Drawing.Point(471, 335);
+            this.tb_fijarPrecio.Location = new System.Drawing.Point(216, 257);
             this.tb_fijarPrecio.Name = "tb_fijarPrecio";
             this.tb_fijarPrecio.Size = new System.Drawing.Size(160, 23);
             this.tb_fijarPrecio.TabIndex = 24;
@@ -219,7 +220,7 @@
             // tb_precioxkilo
             // 
             this.tb_precioxkilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tb_precioxkilo.Location = new System.Drawing.Point(219, 257);
+            this.tb_precioxkilo.Location = new System.Drawing.Point(471, 335);
             this.tb_precioxkilo.Name = "tb_precioxkilo";
             this.tb_precioxkilo.Size = new System.Drawing.Size(160, 23);
             this.tb_precioxkilo.TabIndex = 34;

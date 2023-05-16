@@ -1,9 +1,12 @@
 ﻿using Carniceria;
+using System.Media;
 
 namespace Vista
 {
     public partial class Frm_Heladera : Form
     {
+        private SoundPlayer sonidoCarne = new SoundPlayer();
+
         public Frm_Heladera()
         {
             InitializeComponent();
@@ -45,24 +48,33 @@ namespace Vista
         }
         private void btn_actualizarLista_Click(object sender, EventArgs e)
         {
+            sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+            sonidoCarne.Play();
             ActualizarListas();
         }
 
         private void btn_fijarPrecioxKilo_Click(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
             {
                 if (cb_listaCarnes.Text == Negocio.Heladera.ListaCarnes[i].CorteDeCarne)
                 {
                     if (decimal.TryParse(tb_fijarPrecio.Text, out decimal result))
                     {
+                        sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\caja.wav";
+                        sonidoCarne.Play();
                         Negocio.Heladera.ListaCarnes[i].PrecioPorKilo = result;
+                        ActualizarListas();
                     }
                     else
                     {
                         MessageBox.Show("Ingrese un valor numérico válido");
+                        sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                        sonidoCarne.Play();
                     }
                 }
+                
             }
         }
         private void btn_salir_Click(object sender, EventArgs e)
@@ -72,16 +84,21 @@ namespace Vista
 
         private void btn_nuevoProducto_Click(object sender, EventArgs e)
         {
+            
             if (Producto.CorteNoExistente(Negocio.Heladera.ListaCarnes, tb_nombreCorte.Text))
             {
                 if (decimal.TryParse(tb_precioxkilo.Text, out decimal result))
                 {
+                    sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\correct.wav";
+                    sonidoCarne.Play();
                     Negocio.Heladera.ListaCarnes.Add(new Producto(result, 0, tb_nombreCorte.Text));
                     ActualizarListas();
                     CargarCarnes();
                 }
                 else
                 {
+                    sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                    sonidoCarne.Play();
                     MessageBox.Show("Ingrese un valor numérico válido");
                 }
             }
@@ -91,11 +108,15 @@ namespace Vista
         {
             if (decimal.TryParse(tb_cantAReponer.Text, out decimal result))
             {
+                sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\vaca.wav";
+                sonidoCarne.Play();
                 Negocio.Heladera.ReponerProducto(Negocio.Heladera.ListaCarnes, cb_listaCarnes.Text, result);
                 ActualizarListas();
             }
             else
             {
+                sonidoCarne.SoundLocation = @"C:\Escritorio\UTN\Guillen_Ignacio_2D_2023\Carniceria\Vista\Properties\Data\sonidos\error.wav";
+                sonidoCarne.Play();
                 MessageBox.Show("Ingrese un valor numérico válido");
             }
         }
