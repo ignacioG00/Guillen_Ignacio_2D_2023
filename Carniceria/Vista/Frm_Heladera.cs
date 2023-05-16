@@ -1,13 +1,4 @@
 ﻿using Carniceria;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Vista
 {
@@ -27,12 +18,12 @@ namespace Vista
         /// <summary>
         /// Carga la lista de cortes de carne del objeto Negocio en un ComboBox.
         /// </summary>
-        public void CargarCarnes() 
+        public void CargarCarnes()
         {
-            cb_listaCarnes.Items.Clear();   
+            cb_listaCarnes.Items.Clear();
             for (int i = 0; i < Negocio.ListaCarnes.Count; i++)
             {
-                cb_listaCarnes.Items.Add( Negocio.ListaCarnes[i].CorteDeCarne);
+                cb_listaCarnes.Items.Add(Negocio.ListaCarnes[i].CorteDeCarne);
             }
         }
 

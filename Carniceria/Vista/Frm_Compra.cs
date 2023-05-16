@@ -1,17 +1,4 @@
 ﻿using Carniceria;
-using Microsoft.VisualBasic.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static Carniceria.Negocio;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace Vista
@@ -23,13 +10,14 @@ namespace Vista
         decimal kilosLlevados = 0;
         public Usuario userAux;
 
-        List<Producto> listAux = new List<Producto>()
-        {
-            new Producto(1000, 0, "Bondiola"),
-            new Producto(1200, 0, "Vacio"),
-            new Producto(1500, 0, "Tira de Asado"),
-            new Producto(2500, 0, "Chorizo"),
-            new Producto(1800, 0, "Costillar")
+
+        static List<Producto> listAux = new List<Producto>()
+            {
+                new Producto(1000, 0, "Bondiola"),
+                new Producto(1200, 0, "Vacio"),
+                new Producto(1500, 0, "Tira de Asado"),
+                new Producto(2500, 0, "Chorizo"),
+                new Producto(1800, 0, "Costillar")
         };
 
         public Frm_Compra()
@@ -38,6 +26,20 @@ namespace Vista
             ActualizarListas();
             LimpiarVentana();
             cb_tipoPago.DataSource = Enum.GetValues(typeof(Negocio.TipoPago));
+        }
+
+        private List<Producto> RetornarCopiaListAux(List<Producto> productos) 
+        {
+            List<Producto> listCopia = new List<Producto>();
+            foreach (var item in productos)
+            {
+                if (item.Stock>0)
+                {
+                    Producto nuevoProducto = new Producto(item.PrecioPorKilo, item.Stock, item.CorteDeCarne);
+                    listCopia.Add(nuevoProducto);
+                }
+            }
+            return listCopia;
         }
         private void Frm_Compra_Load(object sender, EventArgs e)
         {
@@ -68,7 +70,7 @@ namespace Vista
 
             if (resultado == DialogResult.Yes && total > 0)
             {
-                AnularPedidos(); 
+                AnularPedidos();
             }
             else
             {
@@ -80,14 +82,14 @@ namespace Vista
         private void btn_actualizarLista_Click(object sender, EventArgs e)
         {
             ActualizarListas();
-            
+
         }
 
         private void btn_realizarPago_Click(object sender, EventArgs e)
         {
             Cliente clienteAux;
-            
-            if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.Parse(tb_montoMax.Text)<0)
+
+            if (string.IsNullOrEmpty(tb_montoMax.Text) || decimal.Parse(tb_montoMax.Text) < 0)
             {
                 MessageBox.Show("COLOQUE MONTO VALIDO PARA REALIZAR COMPRA (debe ser un numero mayor a 0)!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -119,23 +121,12 @@ namespace Vista
 
             if (resultado == DialogResult.Yes && total > 0 && clienteAux.MontoMax > total)
             {
-                clienteAux.ProductosComprados = listAux;
-                //foreach (var item in clienteAux.ProductosComprados)
-                //{
-                //    var productoEnLista = listAux.FirstOrDefault(p => p.CorteDeCarne == item.CorteDeCarne);
-                //    if (productoEnLista != null)
-                //    {
-                //        // Actualizar el stock del producto comprado
-                //        item.Stock += productoEnLista.Stock;
-                //        // Actualizar el stock del producto en la lista auxiliar
-                //        productoEnLista.Stock = 0;
-                //    }
-                //}
+                clienteAux.ProductosComprados = RetornarCopiaListAux(listAux);
                 if (cb_tipoPago.Text == "Credito")
                 {
                     clienteAux.MontoMax -= totalConRecargo;
                     RealizarPago(clienteAux, totalConRecargo);
-                    
+
                 }
                 else
                 {
@@ -155,8 +146,10 @@ namespace Vista
                 else
                 {
                     MessageBox.Show("VENTA NO REALIZADA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    clienteAux.ProductosComprados.Clear();
                 }
             }
+            VaciarStockComprado();
         }
         private void cb_tipoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -191,7 +184,7 @@ namespace Vista
             this.Hide();
         }
 
-        private void VaciarListaAux() 
+        static void VaciarStockComprado()
         {
             for (int i = 0; i < listAux.Count; i++)
             {
@@ -207,7 +200,7 @@ namespace Vista
         private void RealizarPago(Cliente cliente, decimal montoACobrar)
         {
             cliente.MontoMax -= total;
-            string factura= "* FACTURA DE LA COMPRA * \n"; 
+            string factura = "* FACTURA DE LA COMPRA * \n";
             for (int i = 0; i < cliente.ProductosComprados.Count; i++)
             {
                 if (cliente.ProductosComprados[i].Stock > 0)
@@ -215,9 +208,9 @@ namespace Vista
                     factura += cliente.ProductosComprados[i].CorteDeCarne.ToString() + " " + cliente.ProductosComprados[i].Stock + "\n";
                 }
             }
-            MessageBox.Show(factura, "COMPRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Factura facturaAux = new Factura(cliente.Nombre, userAux.Nombre, cliente.ProductosComprados, montoACobrar);
             Negocio.ListFacturaAux.Add(facturaAux);
+            MessageBox.Show(factura, "COMPRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarVentana();
             total = 0;
             cuenta = 0;
@@ -236,7 +229,7 @@ namespace Vista
             {
                 for (int i = 0; i < listAux.Count; i++)
                 {
-                    if (item.CorteDeCarne == listAux[i].CorteDeCarne)
+                    if (item == listAux[i])
                     {
                         item.Stock += listAux[i].Stock;
                         listAux[i].Stock = 0;
@@ -251,6 +244,8 @@ namespace Vista
         /// </summary>
         private void HacerPedido()
         {
+            
+
             if (!string.IsNullOrEmpty(tb_kg.Text))
             {
                 if (decimal.TryParse(tb_kg.Text, out decimal result))
@@ -262,7 +257,7 @@ namespace Vista
                     MessageBox.Show("ERROR. ELIJE UNA CANTIDAD VALIDA!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
+
                 foreach (var item in clb_carnes.CheckedItems)
                 {
                     for (int i = 0; i < Negocio.Heladera.ListaCarnes.Count; i++)
@@ -354,7 +349,7 @@ namespace Vista
                 e.Handled = true;
             }
         }
-        private void LimpiarVentana() 
+        private void LimpiarVentana()
         {
             tb_kg.Text = "";
             tb_montoMax.Text = "";

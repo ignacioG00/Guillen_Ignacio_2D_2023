@@ -1,13 +1,4 @@
 ﻿using Carniceria;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Vista
 {
@@ -34,7 +25,7 @@ namespace Vista
                 dgv_histFacturas.Rows[n].Cells[1].Value = Negocio.ListFacturaAux[i].NombreCliente;
                 for (int j = 0; j < Negocio.ListFacturaAux[i].ProductosVendidos.Count; j++)
                 {
-                    if (Negocio.ListFacturaAux[i].ProductosVendidos[j].Stock>0)
+                    if (Negocio.ListFacturaAux[i].ProductosVendidos[j].Stock > 0)
                     {
                         dgv_histFacturas.Rows[n].Cells[2].Value += Negocio.ListFacturaAux[i].ProductosVendidos[j].CorteDeCarne + " " + Negocio.ListFacturaAux[i].ProductosVendidos[j].Stock + "kg \n";
                     }

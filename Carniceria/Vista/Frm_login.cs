@@ -1,6 +1,4 @@
 using Carniceria;
-using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
